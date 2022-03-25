@@ -1861,8 +1861,8 @@ msgid "To"
 msgstr "Sang"
 
 #: src/pages/SwapV2/index.tsx
-msgid "To (estimated)"
-msgstr "Sang (ước tính)"
+msgid "To (estimated)在v2"
+msgstr ""
 
 #: src/components/SearchModal/ManageTokens.tsx
 msgid "Token"

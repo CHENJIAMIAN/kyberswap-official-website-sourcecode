@@ -321,10 +321,10 @@ function getSwapCallParameters(
 }
 
 /**
- * Returns the swap calls that can be used to make the trade
- * @param trade trade to execute
- * @param allowedSlippage user allowed slippage
- * @param recipientAddressOrName
+ * 返回可用于进行交易的掉期调用
+ * @param trade 交易执行
+ * @param allowedSlippage 用户允许的滑点
+ * @param 收件人地址或名称
  */
 function useSwapV2CallArguments(
   trade: Aggregator | undefined, // trade to execute, required
@@ -357,6 +357,7 @@ function useSwapV2CallArguments(
       library,
       feeConfig,
     )
+    // methodNames里只有一个swap方法
     const swapMethods = methodNames.map(methodName => ({
       methodName,
       args,
@@ -377,6 +378,7 @@ export function useSwapV2Callback(
   const { account, chainId, library } = useActiveWeb3React()
   const { typedValue, feeConfig } = useSwapState()
 
+  // 搞到特定交易所交换的方法
   const swapCalls = useSwapV2CallArguments(trade, allowedSlippage, recipientAddressOrName, feeConfig)
 
   const addTransactionWithType = useTransactionAdder()
@@ -492,7 +494,7 @@ export function useSwapV2Callback(
                       ? shortenAddress(recipientAddressOrName)
                       : recipientAddressOrName
                   }`
-
+            // 可以获取以太库交易响应并将其添加到交易列表中的助手
             addTransactionWithType(response, {
               type: 'Swap',
               summary: `${base} ${withRecipient ?? ''}`,

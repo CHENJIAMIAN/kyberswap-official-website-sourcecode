@@ -205,10 +205,10 @@ export default function Swap({ history }: RouteComponentProps) {
   )
   const noRoute = !trade?.swaps?.length
 
-  // check whether the user has approved the router on the input token
+  // 检查用户是否已批准输入令牌上的路由器
   const [approval, approveCallback] = useApproveCallbackFromTradeV2(trade, allowedSlippage)
 
-  // check if user has gone through approval process, used to show two step buttons, reset on token change
+  // 检查用户是否已通过审批流程，用于显示两个步骤按钮，在令牌更改时重置
   const [approvalSubmitted, setApprovalSubmitted] = useState<boolean>(false)
 
   const handleRotateClick = useCallback(() => {
@@ -229,7 +229,7 @@ export default function Swap({ history }: RouteComponentProps) {
 
   const maxAmountInput: CurrencyAmount | undefined = maxAmountSpend(currencyBalances[Field.INPUT])
 
-  // the callback to execute the swap
+  // 执行交换的回调
   const { callback: swapCallback, error: swapCallbackError } = useSwapV2Callback(trade, allowedSlippage, recipient)
 
   const handleSwap = useCallback(() => {
@@ -416,7 +416,7 @@ export default function Swap({ history }: RouteComponentProps) {
                           disabledInput
                           value={formattedAmounts[Field.OUTPUT]}
                           onUserInput={handleTypeOutput}
-                          label={independentField === Field.INPUT && !showWrap && trade ? t`To (estimated)` : t`To`}
+                          label={independentField === Field.INPUT && !showWrap && trade ? t`To (estimated)在v2` : t`To`}
                           showMaxButton={false}
                           currency={currencies[Field.OUTPUT]}
                           onCurrencySelect={handleOutputSelect}

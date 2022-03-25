@@ -202,7 +202,7 @@ export function useTradeExactOut(currencyIn?: Currency, currencyAmountOut?: Curr
 
 let controller = new AbortController()
 /**
- * Returns the best trade for the exact amount of tokens in to the given token out
+ * 将代币的确切数量的最佳交易返回到给定的代币输出
  */
 export function useTradeExactInV2(
   currencyAmountIn?: CurrencyAmount,
@@ -218,6 +218,7 @@ export function useTradeExactInV2(
   const parsedQs: { dexes?: string } = useParsedQueryString()
 
   const [trade, setTrade] = useState<Aggregator | null>(null)
+  // 对比uniswapv2,kyber帮你节省了多少钱
   const [comparer, setComparer] = useState<AggregationComparer | null>(null)
   const [loading, setLoading] = useState(false)
 

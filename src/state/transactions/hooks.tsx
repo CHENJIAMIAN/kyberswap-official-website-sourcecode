@@ -7,7 +7,7 @@ import { AppDispatch, AppState } from '../index'
 import { addTransaction } from './actions'
 import { TransactionDetails } from './reducer'
 
-// helper that can take a ethers library transaction response and add it to the list of transactions
+// 可以获取以太库交易响应并将其添加到交易列表中的助手
 export function useTransactionAdder(): (
   response: TransactionResponse,
   customData?: {

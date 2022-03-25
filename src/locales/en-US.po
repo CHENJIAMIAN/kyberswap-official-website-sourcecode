@@ -1861,8 +1861,8 @@ msgid "To"
 msgstr "To"
 
 #: src/pages/SwapV2/index.tsx
-msgid "To (estimated)"
-msgstr "To (estimated)"
+msgid "To (estimated)在v2"
+msgstr "To (estimated)在v2"
 
 #: src/components/SearchModal/ManageTokens.tsx
 msgid "Token"
