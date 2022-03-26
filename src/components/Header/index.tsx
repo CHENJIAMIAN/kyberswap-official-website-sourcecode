@@ -307,15 +307,15 @@ export default function Header() {
             <Trans>Swap</Trans>
           </StyledNavLink>
 
-          <StyledNavLink
+          {/* <StyledNavLink
             id={`pools-nav-link`}
             to="/pools"
             isActive={(match, { pathname }) => Boolean(match) || pathname.startsWith('/pools')}
           >
             <Trans>Pools</Trans>
-          </StyledNavLink>
+          </StyledNavLink> */}
 
-          <HideSmall>
+          {/* <HideSmall>
             <StyledNavLink
               id={`my-pools-nav-link`}
               to={'/myPools'}
@@ -327,30 +327,30 @@ export default function Header() {
                 (pathname.startsWith('/find') && pathname.endsWith('find'))
               }
             >
-              <Trans>My Pools</Trans>
+              <Trans>My Pools123</Trans>
             </StyledNavLink>
-          </HideSmall>
+          </HideSmall> */}
 
-          <StyledNavLink id={`farms-nav-link`} to={'/farms'} isActive={match => Boolean(match)}>
+          {/* <StyledNavLink id={`farms-nav-link`} to={'/farms'} isActive={match => Boolean(match)}>
             <YieldMenuWrapper>
               <Trans>Farm</Trans>
               <NewText>
                 <Trans>New</Trans>
               </NewText>
             </YieldMenuWrapper>
-          </StyledNavLink>
+          </StyledNavLink> */}
 
-          <AnalyticsWrapper>
+          {/* <AnalyticsWrapper>
             <StyledNavExternalLink href={DMM_ANALYTICS_URL[chainId as ChainId]}>
               <Trans>Analytics</Trans>
             </StyledNavExternalLink>
-          </AnalyticsWrapper>
+          </AnalyticsWrapper> */}
 
-          <AboutWrapper>
+          {/* <AboutWrapper>
             <StyledNavLink id={`about`} to={'/about'} isActive={match => Boolean(match)}>
               <Trans>About</Trans>
             </StyledNavLink>
-          </AboutWrapper>
+          </AboutWrapper> */}
         </HeaderLinks>
       </HeaderRow>
       <HeaderControls>

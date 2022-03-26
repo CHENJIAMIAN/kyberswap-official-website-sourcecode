@@ -6,8 +6,8 @@ import { useActiveWeb3React } from '../hooks'
 import { wrappedCurrency } from './wrappedCurrency'
 
 /**
- * Returns the price in USDC of the input currency
- * @param currency currency to compute the USDC price of
+ * 返回输入货币的 USDC 价格
+ * @param currency currency 计算 USDC 价格
  */
 export default function useUSDCPrice(currency?: Currency): Price | undefined {
   const { chainId } = useActiveWeb3React()

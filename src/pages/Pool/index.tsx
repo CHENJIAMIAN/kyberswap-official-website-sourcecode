@@ -228,7 +228,7 @@ export default function Pool() {
             </AutoRow>
 
             <Text fontSize="20px" fontWeight={500}>
-              <Trans>My Pools</Trans>
+              <Trans>My Pools789</Trans>
             </Text>
 
             <TitleRow>

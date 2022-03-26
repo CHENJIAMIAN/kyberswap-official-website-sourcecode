@@ -50,7 +50,7 @@ export function computeTradePriceBreakdown(
   return { priceImpactWithoutFee: priceImpactWithoutFeePercent, realizedLPFee: realizedLPFeeAmount, accruedFeePercent }
 }
 
-// computes the minimum amount out and maximum amount in for a trade given a user specified allowed slippage in bips
+// 计算给定用户指定允许滑点的交易的最小金额和最大金额
 export function computeSlippageAdjustedAmounts(
   trade: Trade | Aggregator | undefined,
   allowedSlippage: number

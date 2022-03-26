@@ -140,7 +140,7 @@ export default function App() {
 
   return (
     <>
-      {width && width > 500 ? (
+      {/* {width && width > 500 ? (
         <Sidetab
           id={isDarkTheme ? 'W5TeOyyH' : 'K0dtSO0v'}
           buttonText="Feedback"
@@ -152,14 +152,14 @@ export default function App() {
           id={isDarkTheme ? 'W5TeOyyH' : 'K0dtSO0v'}
           customIcon={isDarkTheme ? 'https://i.imgur.com/iTOOKnr.png' : 'https://i.imgur.com/aPCpnGg.png'}
         />
-      )}
+      )} */}
 
       {(!account || !BLACKLIST_WALLETS.includes(account)) && (
         <ApolloProvider client={apolloClient || defaultExchangeClient}>
-          <Route component={GoogleAnalyticsReporter} />
-          <Route component={DarkModeQueryParamReader} />
+          {/* <Route component={GoogleAnalyticsReporter} />
+          <Route component={DarkModeQueryParamReader} /> */}
           <AppWrapper>
-            <KyberSwapAnnounce />
+            {/* <KyberSwapAnnounce /> */}
             {/* <URLWarning /> */}
             <HeaderWrapper>
               <Header />
@@ -169,16 +169,16 @@ export default function App() {
                 <Popups />
                 <Web3ReactManager>
                   <Switch>
-                    <Route exact strict path="/swap-legacy" component={Swap} />
+                    {/* <Route exact strict path="/swap-legacy" component={Swap} /> */}
                     <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} />
                     <Route exact strict path="/swap" component={SwapV2} />
                     <Route exact strict path="/find" component={PoolFinder} />
                     <OnlyEthereumRoute exact path="/findExternal" component={PoolFinderExternal} />
-                    <Route exact strict path="/pools" component={Pools} />
+                    {/* <Route exact strict path="/pools" component={Pools} />
                     <Route exact strict path="/pools/:currencyIdA" component={Pools} />
-                    <Route exact strict path="/pools/:currencyIdA/:currencyIdB" component={Pools} />
-                    <Route exact strict path="/farms" component={Yield} />
-                    <Route exact strict path="/myPools" component={Pool} />
+                    <Route exact strict path="/pools/:currencyIdA/:currencyIdB" component={Pools} /> */}
+                    {/* <Route exact strict path="/farms" component={Yield} /> */}
+                    {/* <Route exact strict path="/myPools" component={Pool} /> */}
                     <OnlyEthereumRoute exact path="/migration" component={Migration} />
 
                     {/* Create new pool */}
@@ -207,13 +207,13 @@ export default function App() {
                       component={MigrateLiquiditySUSHI}
                     />
                     <Route exact strict path="/migrate/:currencyIdA/:currencyIdB" component={MigrateLiquidityUNI} />
-                    <Route exact path="/about" component={About} />
+                    {/* <Route exact path="/about" component={About} /> */}
                     <Route exact path="/referral" component={CreateReferral} />
                     <Route component={RedirectPathToSwapOnly} />
                   </Switch>
                 </Web3ReactManager>
               </BodyWrapper>
-              {!window.location.href.includes('about') && <Footer />}
+              {/* {!window.location.href.includes('about') && <Footer />} */}
             </Suspense>
           </AppWrapper>
         </ApolloProvider>

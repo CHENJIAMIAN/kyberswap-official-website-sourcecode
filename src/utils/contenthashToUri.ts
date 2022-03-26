@@ -15,8 +15,8 @@ export function hexToUint8Array(hex: string): Uint8Array {
 const UTF_8_DECODER = new TextDecoder()
 
 /**
- * Returns the URI representation of the content hash for supported codecs
- * @param contenthash to decode
+ * 返回支持的编解码器的内容哈希的 URI 表示
+ * @param contenthash 进行解码
  */
 export default function contenthashToUri(contenthash: string): string {
   const buff = hexToUint8Array(contenthash)

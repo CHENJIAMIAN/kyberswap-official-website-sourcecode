@@ -211,7 +211,7 @@ export default function Menu() {
         {!above768 && (
           <NavMenuItem to="/myPools" onClick={toggle}>
             <Monitor size={14} />
-            <Trans>My Pools</Trans>
+            <Trans>My Pools456</Trans>
           </NavMenuItem>
         )}
         {!above1320 && (
@@ -239,7 +239,7 @@ export default function Menu() {
             <Trans>Analytics</Trans>
           </MenuItem>
         )}
-        <MenuItem id="link" href="https://docs.kyberswap.com">
+        {/* <MenuItem id="link" href="https://docs.kyberswap.com">
           <BookOpen size={14} />
           <Trans>Docs</Trans>
         </MenuItem>
@@ -251,17 +251,17 @@ export default function Menu() {
         <MenuItem id="link" href="/15022022KyberSwapTermsofUse.pdf">
           <FileText size={14} />
           <Trans>Terms</Trans>
-        </MenuItem>
+        </MenuItem> */}
         {process.env.REACT_APP_MAINNET_ENV !== 'production' && (
           <NavMenuItem to="/swap-legacy" onClick={toggle}>
             <Triangle size={14} />
             <Trans>Swap Legacy</Trans>
           </NavMenuItem>
         )}
-        <MenuItem id="link" href="https://forms.gle/gLiNsi7iUzHws2BY8">
+        {/* <MenuItem id="link" href="https://forms.gle/gLiNsi7iUzHws2BY8">
           <Edit size={14} />
           <Trans>Contact Us</Trans>
-        </MenuItem>
+        </MenuItem> */}
         <ClaimRewardButton
           disabled={!account || (!!chainId && ![ChainId.MATIC, ChainId.ROPSTEN].includes(chainId)) || pendingTx}
           onClick={toggleClaimPopup}

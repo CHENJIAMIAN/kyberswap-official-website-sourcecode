@@ -1314,8 +1314,8 @@ export const POPULAR_PAIRS: { [chainId in ChainId]: PopularPair[] } = {
   [ChainId.VELAS]: [],
 }
 
-// This variable to handle crazy APR which it can be wrong calculations or a bug
-// But now, for FOMO of Pagxy, updated this to 10000 (before we set 2000 for it)
+// 这个变量来处理疯狂的 APR，它可能是错误的计算或错误
+// 但是现在，对于 Pagxy 的 FOMO，将其更新为 10000（之前我们为它设置了 2000）
 export const MAX_ALLOW_APY = 10000
 export const LP_TOKEN_DECIMALS = 18
 export const RESERVE_USD_DECIMALS = 100

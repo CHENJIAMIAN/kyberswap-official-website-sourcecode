@@ -24,20 +24,20 @@ export default function Web3ReactManager({ children }: { children: JSX.Element }
   const { active } = useWeb3React()
   const { active: networkActive, error: networkError, activate: activateNetwork } = useWeb3React(NetworkContextName)
 
-  // try to eagerly connect to an injected provider, if it exists and has granted access already
+  // 尝试急切地连接到注入的提供者，如果它存在并且已经授予访问权限
   const triedEager = useEagerConnect()
 
-  // after eagerly trying injected, if the network connect ever isn't active or in an error state, activate itd
+  // 在急切地尝试注入后，如果网络连接不活跃或处于错误状态，请激活 itd
   useEffect(() => {
     if (triedEager && !networkActive && !networkError && !active) {
       activateNetwork(network)
     }
   }, [triedEager, networkActive, networkError, activateNetwork, active])
 
-  // when there's no account connected, react to logins (broadly speaking) on the injected provider, if it exists
+  // 当没有连接帐户时，对注入的提供者的登录（广义上讲）做出反应，如果它存在
   useInactiveListener(!triedEager)
 
-  // handle delayed loader state
+  // 处理延迟加载器状态
   const [showLoader, setShowLoader] = useState(false)
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -49,12 +49,12 @@ export default function Web3ReactManager({ children }: { children: JSX.Element }
     }
   }, [])
 
-  // on page load, do nothing until we've tried to connect to the injected connector
+  // 在页面加载时，在我们尝试连接到注入的连接器之前什么都不做
   if (!triedEager) {
     return <LocalLoader />
   }
 
-  // if the account context isn't active, and there's an error on the network context, it's an irrecoverable error
+  // 如果帐户上下文未激活，并且网络上下文出现错误，则这是不可恢复的错误
   if (!active && networkError) {
     return (
       <MessageWrapper>
@@ -67,7 +67,7 @@ export default function Web3ReactManager({ children }: { children: JSX.Element }
     )
   }
 
-  // if neither context is active, spin
+  // 如果两个上下文都没有激活，则旋转
   if (!active && !networkActive) {
     return showLoader ? (
       <MessageWrapper>
