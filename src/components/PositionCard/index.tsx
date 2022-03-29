@@ -22,7 +22,7 @@ import { RowBetween, RowFixed, AutoRow } from '../Row'
 import { useCurrencyConvertedToNative, getTradingFeeAPR } from 'utils/dmm'
 import { UserLiquidityPosition, useSinglePoolData } from 'state/pools/hooks'
 import useTheme from 'hooks/useTheme'
-import { TokenWrapper } from 'pages/AddLiquidity/styled'
+// import { TokenWrapper } from 'pages/AddLiquidity/styled'
 import { useTokensPrice, useETHPrice } from 'state/application/hooks'
 import { formattedNum, shortenAddress } from 'utils'
 import WarningLeftIcon from 'components/Icons/WarningLeftIcon'
@@ -278,12 +278,12 @@ export function MinimalPositionCard({ pair, showUnwrapped = false }: PositionCar
         <MinimalPositionItem>
           <AutoRow justify="space-evenly" style={{ gap: '1rem' }}>
             <MinimalPositionItem>
-              <TokenWrapper>
+              {/* <TokenWrapper>
                 <CurrencyLogo currency={native0} size="16px" />
                 <Text fontSize={12} fontWeight={500}>
                   {native0?.symbol}
                 </Text>
-              </TokenWrapper>
+              </TokenWrapper> */}
 
               {token0Deposited ? (
                 <RowFixed>
@@ -302,12 +302,12 @@ export function MinimalPositionCard({ pair, showUnwrapped = false }: PositionCar
             </MinimalPositionItem>
 
             <MinimalPositionItem noBorder={true} noPadding={true}>
-              <TokenWrapper>
+              {/* <TokenWrapper>
                 <CurrencyLogo currency={native1} size="16px" />
                 <Text fontSize={12} fontWeight={500}>
                   {native1?.symbol}
                 </Text>
-              </TokenWrapper>
+              </TokenWrapper> */}
               {token1Deposited ? (
                 <RowFixed>
                   <Text fontSize={14} fontWeight={400}>
