@@ -1,31 +1,28 @@
-import React, { lazy, Suspense, useEffect } from 'react'
-import { Route, Switch, useRouteMatch } from 'react-router-dom'
-import styled from 'styled-components'
 import { ApolloProvider } from '@apollo/client'
-
-import { defaultExchangeClient } from 'apollo/client'
-import Loader from 'components/LocalLoader'
-import Header from '../components/Header'
-// import URLWarning from '../components/Header/URLWarning'
-import Popups from '../components/Popups'
-import Web3ReactManager from '../components/Web3ReactManager'
-import DarkModeQueryParamReader from '../theme/DarkModeQueryParamReader'
-import SwapV2 from './SwapV2'
-import { BLACKLIST_WALLETS } from '../constants'
-import { useActiveWeb3React } from 'hooks'
-import { useExchangeClient } from 'state/application/hooks'
-import OnlyEthereumRoute from 'components/OnlyEthereumRoute'
 import { ChainId } from '@dynamic-amm/sdk'
-import { useDispatch } from 'react-redux'
-import { AppDispatch } from 'state'
-import { setGasPrice } from 'state/application/actions'
-import KyberSwapAnnounce from 'components/Header/KyberSwapAnnounce'
-import Footer from 'components/Footer/Footer'
-import GoogleAnalyticsReporter from 'components/GoogleAnalyticsReporter'
-import { useIsDarkMode } from 'state/user/hooks'
-import { Sidetab, Popover } from '@typeform/embed-react'
+import { defaultExchangeClient } from 'apollo/client'
+
+import OnlyEthereumRoute from 'components/OnlyEthereumRoute'
+
+import { useActiveWeb3React } from 'hooks'
 import useTheme from 'hooks/useTheme'
 import { useWindowSize } from 'hooks/useWindowSize'
+
+import React, { lazy, Suspense, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { Route, Switch, useRouteMatch } from 'react-router-dom'
+
+import { AppDispatch } from 'state'
+import { setGasPrice } from 'state/application/actions'
+import { useExchangeClient } from 'state/application/hooks'
+import { useIsDarkMode } from 'state/user/hooks'
+import styled from 'styled-components'
+import Header from '../components/Header'
+import Popups from '../components/Popups'
+import Web3ReactManager from '../components/Web3ReactManager'
+import { BLACKLIST_WALLETS } from '../constants'
+import SwapV2 from './SwapV2'
+
 
 // Route-based code splitting
 const Migration = lazy(() => import(/* webpackChunkName: 'migration-page' */ './Pool/lp'))
@@ -106,81 +103,21 @@ export default function App() {
 
   return (
     <>
-      {/* {width && width > 500 ? (
-        <Sidetab
-          id={isDarkTheme ? 'W5TeOyyH' : 'K0dtSO0v'}
-          buttonText="Feedback"
-          buttonColor={theme.primary}
-          customIcon={isDarkTheme ? 'https://i.imgur.com/iTOOKnr.png' : 'https://i.imgur.com/aPCpnGg.png'}
-        />
-      ) : (
-        <Popover
-          id={isDarkTheme ? 'W5TeOyyH' : 'K0dtSO0v'}
-          customIcon={isDarkTheme ? 'https://i.imgur.com/iTOOKnr.png' : 'https://i.imgur.com/aPCpnGg.png'}
-        />
-      )} */}
-
       {(!account || !BLACKLIST_WALLETS.includes(account)) && (
         <ApolloProvider client={apolloClient || defaultExchangeClient}>
-          {/* <Route component={GoogleAnalyticsReporter} />
-          <Route component={DarkModeQueryParamReader} /> */}
           <AppWrapper>
-            {/* <KyberSwapAnnounce /> */}
-            {/* <URLWarning /> */}
             <HeaderWrapper>
               <Header />
             </HeaderWrapper>
-            <Suspense fallback={<Loader />}>
-              <BodyWrapper isAboutpage={aboutPage?.isExact}>
-                <Popups />
-                <Web3ReactManager>
-                  <Switch>
-                    {/* <Route exact strict path="/swap-legacy" component={Swap} /> */}
-                    {/* <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} /> */}
-                    <Route exact strict path="/swap" component={SwapV2} />
-                    {/* <Route exact strict path="/find" component={PoolFinder} /> */}
-                    {/* <OnlyEthereumRoute exact path="/findExternal" component={PoolFinderExternal} /> */}
-                    {/* <Route exact strict path="/pools" component={Pools} />
-                    <Route exact strict path="/pools/:currencyIdA" component={Pools} />
-                    <Route exact strict path="/pools/:currencyIdA/:currencyIdB" component={Pools} /> */}
-                    {/* <Route exact strict path="/farms" component={Yield} /> */}
-                    {/* <Route exact strict path="/myPools" component={Pool} /> */}
-                    <OnlyEthereumRoute exact path="/migration" component={Migration} />
-
-                    {/* Create new pool */}
-                    {/* <Route exact path="/create" component={CreatePool} />
-                    <Route exact path="/create/:currencyIdA" component={RedirectOldCreatePoolPathStructure} />
-                    <Route
-                      exact
-                      path="/create/:currencyIdA/:currencyIdB"
-                      component={RedirectCreatePoolDuplicateTokenIds} 
-                    />*/}
-
-                    {/* Add liquidity */}
-                    {/* <Route exact path="/add/:currencyIdA/:currencyIdB/:pairAddress" component={AddLiquidity} />
-
-                    <Route
-                      exact
-                      strict
-                      path="/remove/:currencyIdA/:currencyIdB/:pairAddress"
-                      component={RemoveLiquidity}
-                    />
-
-                    <Route
-                      exact
-                      strict
-                      path="/migrateSushi/:currencyIdA/:currencyIdB"
-                      component={MigrateLiquiditySUSHI}
-                    />
-                    <Route exact strict path="/migrate/:currencyIdA/:currencyIdB" component={MigrateLiquidityUNI} /> */}
-                    {/* <Route exact path="/about" component={About} /> */}
-                    {/* <Route exact path="/referral" component={CreateReferral} /> */}
-                    {/* <Route component={RedirectPathToSwapOnly} /> */}
-                  </Switch>
-                </Web3ReactManager>
-              </BodyWrapper>
-              {/* {!window.location.href.includes('about') && <Footer />} */}
-            </Suspense>
+            <BodyWrapper isAboutpage={aboutPage?.isExact}>
+              <Popups />
+              <Web3ReactManager>
+                <Switch>
+                  <Route exact strict path="/swap" component={SwapV2} />
+                  <OnlyEthereumRoute exact path="/migration" component={Migration} />
+                </Switch>
+              </Web3ReactManager>
+            </BodyWrapper>
           </AppWrapper>
         </ApolloProvider>
       )}

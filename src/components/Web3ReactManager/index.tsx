@@ -7,7 +7,6 @@ import { network } from '../../connectors'
 import { useEagerConnect, useInactiveListener } from '../../hooks'
 import { NetworkContextName } from '../../constants'
 import Loader from '../Loader'
-import LocalLoader from 'components/LocalLoader'
 
 const MessageWrapper = styled.div`
   display: flex;
@@ -51,7 +50,7 @@ export default function Web3ReactManager({ children }: { children: JSX.Element }
 
   // 在页面加载时，在我们尝试连接到注入的连接器之前什么都不做
   if (!triedEager) {
-    return <LocalLoader />
+    return <></>
   }
 
   // 如果帐户上下文未激活，并且网络上下文出现错误，则这是不可恢复的错误

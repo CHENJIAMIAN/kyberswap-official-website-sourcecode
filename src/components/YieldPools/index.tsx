@@ -27,7 +27,6 @@ import {
 } from './styleds'
 import ConfirmHarvestingModal from './ConfirmHarvestingModal'
 import { Flex, Text } from 'rebass'
-import LocalLoader from 'components/LocalLoader'
 import useTheme from 'hooks/useTheme'
 import { useBlockNumber } from 'state/application/hooks'
 import { useOnClickOutside } from 'hooks/useOnClickOutside'
@@ -260,7 +259,7 @@ const YieldPools = ({ loading, active }: { loading: boolean; active?: boolean })
 
       {loading && noFarms ? (
         <Flex backgroundColor={theme.background}>
-          <LocalLoader />
+          <></>
         </Flex>
       ) : noFarms ? (
         <Flex

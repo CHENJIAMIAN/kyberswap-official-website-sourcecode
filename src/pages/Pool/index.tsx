@@ -22,7 +22,6 @@ import Search from 'components/Search'
 import { useFarmsData, useTotalApr } from 'state/farms/hooks'
 import { Farm } from 'state/farms/types'
 import { useToken } from 'hooks/Tokens'
-import LocalLoader from 'components/LocalLoader'
 import { ButtonPrimary } from 'components/Button'
 import InfoHelper from 'components/InfoHelper'
 import { isMobile } from 'react-device-detect'
@@ -336,7 +335,7 @@ export default function Pool() {
                 </Flex>
               )
             ) : loading && !userFarms.length ? (
-              <LocalLoader />
+              <></>
             ) : !!userFarms.length ? (
               <>
                 <PositionCardGrid>

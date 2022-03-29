@@ -13,7 +13,6 @@ import useLiveChartData, { LiveDataTimeframeEnum } from 'hooks/useLiveChartData'
 import { isMobile } from 'react-device-detect'
 import WarningIcon from './WarningIcon'
 import { useCurrencyConvertedToNative } from 'utils/dmm'
-import Loader from 'components/LocalLoader'
 import CircleInfoIcon from './CircleInfoIcon'
 import { Trans } from '@lingui/macro'
 const LiveChartWrapper = styled.div`
@@ -230,7 +229,7 @@ function LiveChart({
                 color={theme.disableText}
                 style={{ gap: '16px' }}
               >
-                {loading && <Loader />}
+                {loading && <></>}
                 {error && (
                   <>
                     <WarningIcon />
