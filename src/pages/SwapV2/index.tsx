@@ -232,6 +232,8 @@ export default function Swap({ history }: RouteComponentProps) {
   // 执行交换的回调
   const { callback: swapCallback, error: swapCallbackError } = useSwapV2Callback(trade, allowedSlippage, recipient)
 
+  // 如何手动执行交换, 把输入输出填上, 再调用handleSwap()方法
+  // 确认交换->swapCallback
   const handleSwap = useCallback(() => {
     if (!swapCallback) {
       return

@@ -176,7 +176,7 @@ function getSwapCallParameters(
 
         src[feeReceiver] = BigNumber.from(amountWithFeeIn).sub(amountIn)
       }
-      // Use swap simple mode when tokenIn is not ETH and every firstPool is encoded by uniswap.
+      // 当 tokenIn 不是 ETH 并且每个 firstPool 都由 uniswap 编码时，使用交换简单模式。
       let isUseSwapSimpleMode = !etherIn
       if (isUseSwapSimpleMode) {
         for (let i = 0; i < trade.swaps.length; i++) {
@@ -368,8 +368,8 @@ function useSwapV2CallArguments(
   }, [account, allowedSlippage, chainId, deadline, library, recipient, trade, feeConfig])
 }
 
-// returns a function that will execute a swap, if the parameters are all valid
-// and the user has approved the slippage adjusted input amount for the trade
+// 如果参数都有效，则返回将执行交换的函数
+// 并且用户已批准该交易的滑点调整输入量
 export function useSwapV2Callback(
   trade: Aggregator | undefined, // trade to execute, required
   allowedSlippage: number = INITIAL_ALLOWED_SLIPPAGE, // in bips

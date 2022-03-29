@@ -52,7 +52,7 @@ export function useDerivedSwapInfoV2(): {
     recipient,
     saveGas,
     feeConfig,
-  } = useSwapState()
+  } = useSwapState()//react-redux获取
 
   const inputCurrency = useCurrency(inputCurrencyId)
   const outputCurrency = useCurrency(outputCurrencyId)
