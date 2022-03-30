@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { Settings } from 'react-feather'
 import styled, { css } from 'styled-components'
-import { Trans, t } from '@lingui/macro'
+
 import { ApplicationModal } from '../../state/application/actions'
 import { useModalOpen, useToggleSettingsMenu } from '../../state/application/hooks'
 import { useDarkModeManager, useUserLocale } from 'state/user/hooks'
@@ -14,7 +14,6 @@ import ArrowRight from 'components/Icons/ArrowRight'
 import { LOCALE_LABEL, SupportedLocale } from 'constants/locales'
 import LanguageSelector from 'components/LanguageSelector'
 import MenuFlyout from 'components/MenuFlyout'
-import { useLingui } from '@lingui/react'
 import { isMobile } from 'react-device-detect'
 const StyledMenuIcon = styled(Settings)`
   height: 20px;
@@ -87,7 +86,6 @@ export default function SettingsTab() {
   const open = useModalOpen(ApplicationModal.SETTINGS)
   const toggle = useToggleSettingsMenu()
   const userLocale = useUserLocale()
-  useLingui() // To re-render t`Preferences` when language change
 
   const [isSelectingLanguage, setIsSelectingLanguage] = useState(false)
 
@@ -106,7 +104,7 @@ export default function SettingsTab() {
         browserCustomStyle={MenuFlyoutBrowserStyle}
         isOpen={open}
         toggle={toggle}
-        translatedTitle={isSelectingLanguage ? undefined : t`Preferences`}
+        translatedTitle={isSelectingLanguage ? undefined : `Preferences`}
         hasArrow
         mobileCustomStyle={{ paddingBottom: '40px' }}
       >
@@ -115,7 +113,7 @@ export default function SettingsTab() {
             <RowBetween style={{ marginTop: '15px' }}>
               <RowFixed>
                 <StyledLabel>
-                  <Trans>Dark Mode</Trans>
+                  Dark Mode
                 </StyledLabel>
               </RowFixed>
               <ThemeToggle id="toggle-dark-mode-button" isDarkMode={darkMode} toggle={toggleSetDarkMode} />
@@ -124,7 +122,7 @@ export default function SettingsTab() {
             <RowBetween style={{ marginTop: '15px' }}>
               <RowFixed>
                 <StyledLabel>
-                  <Trans>Language</Trans>
+                  Language
                 </StyledLabel>
               </RowFixed>
               <ButtonEmpty

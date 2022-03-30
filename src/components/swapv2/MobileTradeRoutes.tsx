@@ -9,7 +9,7 @@ import { useModalOpen, useToggleModal } from 'state/application/hooks'
 import { ApplicationModal } from 'state/application/actions'
 import { RowBetween } from 'components/Row'
 import Routing from './Routing'
-import { Trans } from '@lingui/macro'
+
 import { Field } from 'state/swap/actions'
 import { Currency } from '@dynamic-amm/sdk'
 
@@ -32,7 +32,7 @@ function MobileTradeRoutes({
         <Flex flexDirection="column" width="100%" padding="20px">
           <RowBetween padding="5px 0">
             <Text fontSize={18} fontWeight={500} color={theme.subText}>
-              <Trans>Your trade route</Trans>
+              Your trade route
             </Text>
             <ButtonText onClick={toggle} style={{ alignSelf: 'flex-end' }}>
               <X color={theme.text} />

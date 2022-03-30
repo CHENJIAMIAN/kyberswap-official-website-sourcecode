@@ -2,7 +2,7 @@ import { diffTokenLists, TokenList } from '@uniswap/token-lists'
 import React, { useCallback, useMemo } from 'react'
 import { useDispatch } from 'react-redux'
 import { Text } from 'rebass'
-import { Trans } from '@lingui/macro'
+
 
 import { AppDispatch } from 'state'
 import { useRemovePopup } from 'state/application/hooks'
@@ -51,24 +51,24 @@ export default function ListUpdatePopup({
       <AutoColumn style={{ flex: '1' }} gap="8px">
         {auto ? (
           <TYPE.body fontWeight={500}>
-            <Trans>
+            
               The token list &quot;{oldList.name}&quot; has been updated to{' '}
               <strong>{listVersionLabel(newList.version)}</strong>.
-            </Trans>
+            
           </TYPE.body>
         ) : (
           <>
             <div>
               <Text>
-                <Trans>
+                
                   An update is available for the token list &quot;{oldList.name}&quot; (
                   {listVersionLabel(oldList.version)} to {listVersionLabel(newList.version)}).
-                </Trans>
+                
               </Text>
               <ul>
                 {tokensAdded.length > 0 ? (
                   <li>
-                    <Trans>
+                    
                       {tokensAdded.map((token, i) => (
                         <React.Fragment key={`${token.chainId}-${token.address}`}>
                           <strong title={token.address}>{token.symbol}</strong>
@@ -76,12 +76,12 @@ export default function ListUpdatePopup({
                         </React.Fragment>
                       ))}{' '}
                       added
-                    </Trans>
+                    
                   </li>
                 ) : null}
                 {tokensRemoved.length > 0 ? (
                   <li>
-                    <Trans>
+                    
                       {tokensRemoved.map((token, i) => (
                         <React.Fragment key={`${token.chainId}-${token.address}`}>
                           <strong title={token.address}>{token.symbol}</strong>
@@ -89,12 +89,12 @@ export default function ListUpdatePopup({
                         </React.Fragment>
                       ))}{' '}
                       removed
-                    </Trans>
+                    
                   </li>
                 ) : null}
                 {numTokensChanged > 0 ? (
                   <li>
-                    <Trans>{numTokensChanged} tokens updated</Trans>
+                    {numTokensChanged} tokens updated
                   </li>
                 ) : null}
               </ul>
@@ -102,12 +102,12 @@ export default function ListUpdatePopup({
             <AutoRow>
               <div style={{ flexGrow: 1, marginRight: 12 }}>
                 <ButtonSecondary onClick={handleAcceptUpdate}>
-                  <Trans>Accept update</Trans>
+                  Accept update
                 </ButtonSecondary>
               </div>
               <div style={{ flexGrow: 1 }}>
                 <ButtonSecondary onClick={removeThisPopup}>
-                  <Trans>Dismiss</Trans>
+                  Dismiss
                 </ButtonSecondary>
               </div>
             </AutoRow>

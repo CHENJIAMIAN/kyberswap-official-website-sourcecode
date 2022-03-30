@@ -2,7 +2,7 @@ import { CurrencyAmount, JSBI, Pair, Percent, TokenAmount } from '@sushiswap/sdk
 import { Currency, TokenAmount as TokenAmountDMM } from '@dynamic-amm/sdk'
 import { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { t } from '@lingui/macro'
+
 import { tokenAmountDmmToSushi, tokenDmmToSushi, tokenSushiToDmm } from 'utils/dmm'
 import { usePair } from '../../data/ReservesSUSHI'
 import { useTotalSupply } from '../../data/TotalSupply'
@@ -134,11 +134,11 @@ export function useDerivedBurnInfo(
 
   let error: string | undefined
   if (!account) {
-    error = t`Connect wallet`
+    error = `Connect wallet`
   }
 
   if (!parsedAmounts[Field.LIQUIDITY] || !parsedAmounts[Field.CURRENCY_A] || !parsedAmounts[Field.CURRENCY_B]) {
-    error = error ?? t`Enter an amount`
+    error = error ?? `Enter an amount`
   }
 
   return { pair, parsedAmounts, error }

@@ -1,7 +1,7 @@
 import { ChainId, Currency, Trade, TradeType } from '@dynamic-amm/sdk'
 import React, { useContext } from 'react'
 import styled, { ThemeContext } from 'styled-components'
-import { t, Trans } from '@lingui/macro'
+
 import { Field } from '../../state/swap/actions'
 import { useUserSlippageTolerance } from '../../state/user/hooks'
 import { TYPE, ExternalLink } from '../../theme'
@@ -39,10 +39,10 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
         <RowBetween>
           <RowFixed>
             <TYPE.black fontSize={14} fontWeight={400} color={theme.text2}>
-              {isExactIn ? t`Minimum received` : t`Maximum sold`}
+              {isExactIn ? `Minimum received` : `Maximum sold`}
             </TYPE.black>
             <QuestionHelper
-              text={t`Your transaction will revert if there is a large, unfavorable price movement before it is confirmed.`}
+              text={`Your transaction will revert if there is a large, unfavorable price movement before it is confirmed.`}
             />
           </RowFixed>
           <RowFixed>
@@ -56,10 +56,10 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
         <RowBetween>
           <RowFixed>
             <TYPE.black fontSize={14} fontWeight={400} color={theme.text2}>
-              <Trans>Price Impact</Trans>
+              Price Impact
             </TYPE.black>
             <QuestionHelper
-              text={t`The difference between the market price and your price due to trade size. Adjust the price impact tolerance in the top right configuration.`}
+              text={`The difference between the market price and your price due to trade size. Adjust the price impact tolerance in the top right configuration.`}
             />
           </RowFixed>
           <FormattedPriceImpact priceImpact={priceImpactWithoutFee} />
@@ -68,10 +68,10 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
         <RowBetween>
           <RowFixed>
             <TYPE.black fontSize={14} fontWeight={400} color={theme.text2}>
-              <Trans>Liquidity Provider Fee</Trans>
+              Liquidity Provider Fee
             </TYPE.black>
             <QuestionHelper
-              text={t`A portion of each trade (${accruedFeePercent.toSignificant(
+              text={`A portion of each trade (${accruedFeePercent.toSignificant(
                 6
               )}%) goes to liquidity providers as a protocol incentive.`}
             />
@@ -108,9 +108,9 @@ export function AdvancedSwapDetails({ trade }: AdvancedSwapDetailsProps) {
               <AutoColumn style={{ padding: '0 24px' }}>
                 <RowFixed>
                   <TYPE.black fontSize={14} fontWeight={400} color={theme.text2}>
-                    <Trans>Route</Trans>
+                    Route
                   </TYPE.black>
-                  <QuestionHelper text={t`Routing through these tokens resulted in the best price for your trade.`} />
+                  <QuestionHelper text={`Routing through these tokens resulted in the best price for your trade.`} />
                 </RowFixed>
                 <SwapRoute trade={trade} />
               </AutoColumn>
@@ -121,7 +121,7 @@ export function AdvancedSwapDetails({ trade }: AdvancedSwapDetailsProps) {
               href={`${DMM_ANALYTICS_URL[chainId as ChainId]}/pool/${trade?.route.pairs[0].liquidityToken.address}`}
               target="_blank"
             >
-              <Trans>Token pool analytics →</Trans>
+              Token pool analytics →
             </InfoLink>
           </AutoColumn>
         </>

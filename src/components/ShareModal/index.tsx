@@ -8,7 +8,7 @@ import Modal from 'components/Modal'
 import { Text, Flex } from 'rebass'
 import { RowBetween } from '../Row'
 import { ButtonText } from '../../theme'
-import { Trans } from '@lingui/macro'
+
 import { X, Share2 } from 'react-feather'
 import styled, { ThemeContext } from 'styled-components'
 import { ButtonPrimary } from '../Button'
@@ -157,9 +157,9 @@ export default function ShareModal({ currencies }: { currencies?: { [field in Fi
           <RowBetween>
             <Text fontSize={18} fontWeight={500}>
               {isSwapPage ? (
-                <Trans>Share this token with your friends!</Trans>
+                `Share this token with your friends!`
               ) : (
-                <Trans>Share this pool with your friends!</Trans>
+                `Share this pool with your friends!`
               )}
             </Text>
             <ButtonText onClick={() => setIsShow(false)}>

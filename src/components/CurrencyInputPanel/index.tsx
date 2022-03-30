@@ -2,7 +2,7 @@ import { Currency, Pair } from '@dynamic-amm/sdk'
 import React, { useState, useContext, useCallback, ReactNode, useEffect, useRef } from 'react'
 import styled, { ThemeContext } from 'styled-components'
 import { darken, lighten } from 'polished'
-import { Trans } from '@lingui/macro'
+
 import { useCurrencyBalance } from '../../state/wallet/hooks'
 import CurrencySearchModal from '../SearchModal/CurrencySearchModal'
 import CurrencyLogo from '../CurrencyLogo'
@@ -218,7 +218,7 @@ export default function CurrencyInputPanel({
             <Flex justifyContent="space-between" fontSize="12px" marginBottom="8px" alignItems="center">
               {showMaxButton && positionMax === 'top' && currency && account ? (
                 <ButtonEmpty padding="0" width="fit-content" onClick={onMax}>
-                  <Trans>Select Max</Trans>
+                  Select Max
                 </ButtonEmpty>
               ) : (
                 <div />
@@ -252,7 +252,7 @@ export default function CurrencyInputPanel({
                   showMaxButton &&
                   positionMax === 'inline' && (
                     <StyledBalanceMax onClick={onMax}>
-                      <Trans>MAX</Trans>
+                      MAX
                     </StyledBalanceMax>
                   )
                 )}
@@ -290,7 +290,7 @@ export default function CurrencyInputPanel({
                         ? nativeCurrency.symbol.slice(0, 4) +
                           '...' +
                           nativeCurrency.symbol.slice(nativeCurrency.symbol.length - 5, nativeCurrency.symbol.length)
-                        : nativeCurrency?.symbol) || <Trans>Select a token</Trans>}
+                        : nativeCurrency?.symbol) || `Select a token`}
                     </StyledTokenName>
                   )}
                   {!disableCurrencySelect && !isSwitchMode && <StyledDropDown selected={!!currency} />}

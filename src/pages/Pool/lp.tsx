@@ -1,10 +1,9 @@
 import React, { useContext, useMemo } from 'react'
 import styled, { ThemeContext } from 'styled-components'
-import { t, Trans } from '@lingui/macro'
+
 import { Pair as PairUNI } from '@uniswap/sdk'
 import { Pair as PairSUSHI } from '@sushiswap/sdk'
 import { SwapPoolTabs } from '../../components/NavigationTabs'
-import { SwitchLocaleLink } from 'components/SwitchLocaleLink'
 import FullPositionCardUNI from '../../components/PositionCard/PositionCardUNI'
 import FullPositionCardSUSHI from '../../components/PositionCard/PositionCardSUSHI'
 import { useTokenBalancesWithLoadingIndicator } from '../../state/wallet/hooks'
@@ -136,7 +135,7 @@ export default function Pool() {
             <TitleRow style={{ marginTop: '1rem' }} padding={'0'}>
               <HideSmall>
                 <TYPE.mediumHeader style={{ marginTop: '0.5rem', justifySelf: 'flex-start' }}>
-                  <Trans>My Pools on External Platforms</Trans>
+                  My Pools on External Platforms
                 </TYPE.mediumHeader>
               </HideSmall>
             </TitleRow>
@@ -144,14 +143,14 @@ export default function Pool() {
             {!account ? (
               <Card padding="40px">
                 <TYPE.body color={theme.text3} textAlign="center">
-                  <Trans>Connect to a wallet to view your liquidity.</Trans>
+                  Connect to a wallet to view your liquidity.
                 </TYPE.body>
               </Card>
             ) : v2IsLoading ? (
               <EmptyProposals>
                 <TYPE.body color={theme.text3} textAlign="center">
                   <Dots>
-                    <Trans>Loading</Trans>
+                    Loading
                   </Dots>
                 </TYPE.body>
               </EmptyProposals>
@@ -167,23 +166,22 @@ export default function Pool() {
             ) : (
               <EmptyProposals>
                 <TYPE.body color={theme.text3} textAlign="center">
-                  <Trans>No liquidity found.</Trans>
+                  No liquidity found.
                 </TYPE.body>
               </EmptyProposals>
             )}
 
             <AutoColumn justify={'center'} gap="md">
               <Text textAlign="center" fontSize={14} style={{ padding: '.5rem 0 .5rem 0' }}>
-                {t`Don't see a pool you joined?`}{' '}
+                {`Don't see a pool you joined?`}{' '}
                 <StyledInternalLink id="import-pool-link" to={'/findExternal'}>
-                  <Trans>Import it.</Trans>
+                  Import it.
                 </StyledInternalLink>
               </Text>
             </AutoColumn>
           </AutoColumn>
         </AutoColumn>
       </PageWrapper>
-      <SwitchLocaleLink />
     </>
   )
 }

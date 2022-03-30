@@ -3,7 +3,7 @@ import React from 'react'
 import { Text } from 'rebass'
 import { Link, NavLink } from 'react-router-dom'
 import { darken } from 'polished'
-import { Trans } from '@lingui/macro'
+
 import styled from 'styled-components'
 
 import { DMM_ANALYTICS_URL } from 'constants/index'
@@ -304,7 +304,7 @@ export default function Header() {
             isActive={match => Boolean(match)}
             style={{ flexDirection: 'column' }}
           >
-            <Trans>Swap</Trans>
+            Swap
           </StyledNavLink>
 
           {/* <StyledNavLink
@@ -312,7 +312,7 @@ export default function Header() {
             to="/pools"
             isActive={(match, { pathname }) => Boolean(match) || pathname.startsWith('/pools')}
           >
-            <Trans>Pools</Trans>
+            Pools
           </StyledNavLink> */}
 
           {/* <HideSmall>
@@ -327,28 +327,28 @@ export default function Header() {
                 (pathname.startsWith('/find') && pathname.endsWith('find'))
               }
             >
-              <Trans>My Pools123</Trans>
+              My Pools123
             </StyledNavLink>
           </HideSmall> */}
 
           {/* <StyledNavLink id={`farms-nav-link`} to={'/farms'} isActive={match => Boolean(match)}>
             <YieldMenuWrapper>
-              <Trans>Farm</Trans>
+              Farm
               <NewText>
-                <Trans>New</Trans>
+                New
               </NewText>
             </YieldMenuWrapper>
           </StyledNavLink> */}
 
           {/* <AnalyticsWrapper>
             <StyledNavExternalLink href={DMM_ANALYTICS_URL[chainId as ChainId]}>
-              <Trans>Analytics</Trans>
+              Analytics
             </StyledNavExternalLink>
           </AnalyticsWrapper> */}
 
           {/* <AboutWrapper>
             <StyledNavLink id={`about`} to={'/about'} isActive={match => Boolean(match)}>
-              <Trans>About</Trans>
+              About
             </StyledNavLink>
           </AboutWrapper> */}
         </HeaderLinks>
@@ -356,7 +356,7 @@ export default function Header() {
       <HeaderControls>
         <HeaderElement>
           {/*  <HideExtraSmall>
-            <MouseoverTooltip text={t`Test our L2 solution now!`} placement="bottom">
+            <MouseoverTooltip text={`Test our L2 solution now!`} placement="bottom">
               <SlideToUnlock>
                 <StyledNavExternalLink href={process.env.REACT_APP_ZKYBER_URL || ''}>
                   <Text width="max-content">ZKyber ↗</Text>

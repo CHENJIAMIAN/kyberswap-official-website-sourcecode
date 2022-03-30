@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Trans } from '@lingui/macro'
+
 
 import { ButtonEmpty } from 'components/Button'
 import InfoHelper from 'components/InfoHelper'
@@ -47,12 +47,12 @@ const LiquidityProviderMode = ({
     <TabContainer>
       <Tab isActive={activeTab === 0} padding="0" onClick={() => setActiveTab(0)}>
         <TabText isActive={activeTab === 0}>
-          <Trans>Token Pair</Trans>
+          Token Pair
         </TabText>
       </Tab>
       <Tab isActive={activeTab === 1} padding="0" onClick={() => setActiveTab(1)}>
         <TabText isActive={activeTab === 1}>
-          <Trans>Single Token</Trans>
+          Single Token
           <InfoHelper text={singleTokenInfo} size={18} isActive={activeTab === 1} />
         </TabText>
       </Tab>

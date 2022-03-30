@@ -1,7 +1,7 @@
 import { Currency, CurrencyAmount, JSBI, Pair, Percent, Price, TokenAmount } from '@dynamic-amm/sdk'
 import { useCallback, useMemo } from 'react'
 import { useSelector } from 'react-redux'
-import { t } from '@lingui/macro'
+
 import { usePairByAddress } from '../../data/Reserves'
 import { useTotalSupply } from '../../data/TotalSupply'
 
@@ -111,7 +111,7 @@ export function useDerivedBurnInfo(
     if (pair?.liquidityToken) {
       const independentAmount = tryParseAmount(typedValue, pair.liquidityToken)
       if (independentAmount && userLiquidity && independentAmount.greaterThan(userLiquidity)) {
-        error = error ?? t`Insufficient balance`
+        error = error ?? `Insufficient balance`
       }
 
       if (independentAmount && userLiquidity && !independentAmount.greaterThan(userLiquidity)) {
@@ -168,15 +168,15 @@ export function useDerivedBurnInfo(
   }, [chainId, currencyA, pair])
 
   if (!account) {
-    error = t`Connect wallet`
+    error = `Connect wallet`
   }
 
   if (!parsedAmounts[Field.LIQUIDITY] || !parsedAmounts[Field.CURRENCY_A] || !parsedAmounts[Field.CURRENCY_B]) {
-    error = error ?? t`Enter an amount`
+    error = error ?? `Enter an amount`
   }
 
   if (userLiquidity && parsedAmounts[Field.LIQUIDITY]?.greaterThan(userLiquidity)) {
-    error = error ?? t`Insufficient balance`
+    error = error ?? `Insufficient balance`
   }
 
   return { dependentField, currencies, pair, userLiquidity, parsedAmounts, amountsMin, price, error }
@@ -298,7 +298,7 @@ export function useDerivedZapOutInfo(
       const independentAmount = tryParseAmount(typedValue, pair.liquidityToken)
 
       if (independentAmount && userLiquidity && independentAmount.greaterThan(userLiquidity)) {
-        error = error ?? t`Insufficient balance`
+        error = error ?? `Insufficient balance`
       }
 
       if (independentAmount && userLiquidity && !independentAmount.greaterThan(userLiquidity)) {
@@ -409,19 +409,19 @@ export function useDerivedZapOutInfo(
   }, [chainId, currencyA, pair])
 
   if (!account) {
-    error = t`Connect wallet`
+    error = `Connect wallet`
   }
 
   if (!typedValue && !parsedAmounts[Field.LIQUIDITY]) {
-    error = error ?? t`Enter an amount`
+    error = error ?? `Enter an amount`
   }
 
   if (typedValue && !parsedAmounts[Field.LIQUIDITY]) {
-    error = error ?? t`Invalid amount`
+    error = error ?? `Invalid amount`
   }
 
   if (userLiquidity && parsedAmounts[Field.LIQUIDITY]?.greaterThan(userLiquidity)) {
-    error = error ?? t`Insufficient balance`
+    error = error ?? `Insufficient balance`
   }
 
   if (
@@ -433,7 +433,7 @@ export function useDerivedZapOutInfo(
   }
 
   if (zapOutAmount.error && !insufficientLiquidity) {
-    error = t`Something went wrong`
+    error = `Something went wrong`
   }
 
   return {

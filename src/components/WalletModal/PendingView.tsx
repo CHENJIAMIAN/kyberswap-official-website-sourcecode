@@ -1,7 +1,7 @@
 import { AbstractConnector } from '@web3-react/abstract-connector'
 import React from 'react'
 import styled from 'styled-components'
-import { Trans } from '@lingui/macro'
+
 import Option from './Option'
 import { SUPPORTED_WALLETS } from '../../constants'
 import { injected } from '../../connectors'
@@ -86,7 +86,7 @@ export default function PendingView({
           {error ? (
             <ErrorGroup>
               <div>
-                <Trans>Error connecting.</Trans>
+                Error connecting.
               </div>
               <ErrorButton
                 onClick={() => {
@@ -94,13 +94,13 @@ export default function PendingView({
                   connector && tryActivation(connector)
                 }}
               >
-                <Trans>Try Again</Trans>
+                Try Again
               </ErrorButton>
             </ErrorGroup>
           ) : (
             <>
               <StyledLoader />
-              <Trans>Initializing...</Trans>
+              Initializing...
             </>
           )}
         </LoadingWrapper>

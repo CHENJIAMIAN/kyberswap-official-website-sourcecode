@@ -3,7 +3,7 @@ import { Settings, CheckCircle } from 'react-feather'
 import { usePopper } from 'react-popper'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
-import { t, Trans } from '@lingui/macro'
+
 import { useFetchListCallback } from '../../hooks/useFetchListCallback'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
 import { TokenList } from '@uniswap/token-lists'
@@ -162,14 +162,14 @@ const ListRow = memo(function ListRow({ listUrl }: { listUrl: string }) {
                 <div>{list && listVersionLabel(list.version)}</div>
                 <SeparatorDark />
                 <ExternalLink href={`https://tokenlists.org/token-list?url=${listUrl}`}>
-                  <Trans>View list</Trans>
+                  View list
                 </ExternalLink>
                 <UnpaddedLinkStyledButton onClick={handleRemoveList} disabled={Object.keys(listsByUrl).length === 1}>
-                  <Trans>Remove list</Trans>
+                  Remove list
                 </UnpaddedLinkStyledButton>
                 {pending && (
                   <UnpaddedLinkStyledButton onClick={handleAcceptListUpdate}>
-                    <Trans>Update list</Trans>
+                    Update list
                   </UnpaddedLinkStyledButton>
                 )}
               </PopoverContainer>
@@ -309,7 +309,7 @@ export function ManageLists({
           <SearchInput
             type="text"
             id="list-add-input"
-            placeholder={t`https:// or ipfs:// or ENS name`}
+            placeholder={`https:// or ipfs:// or ENS name`}
             value={listUrlInput}
             onChange={handleInput}
           />
@@ -329,7 +329,7 @@ export function ManageLists({
                 <AutoColumn gap="4px" style={{ marginLeft: '20px' }}>
                   <TYPE.body fontWeight={600}>{tempList.name}</TYPE.body>
                   <TYPE.main fontSize={'12px'}>
-                    <Trans>{tempList.tokens.length} tokens</Trans>
+                    {tempList.tokens.length} tokens
                   </TYPE.main>
                 </AutoColumn>
               </RowFixed>
@@ -339,7 +339,7 @@ export function ManageLists({
                     <CheckCircle />
                   </IconWrapper>
                   <TYPE.body color={theme.text2}>
-                    <Trans>Loaded</Trans>
+                    Loaded
                   </TYPE.body>
                 </RowFixed>
               ) : (
@@ -349,7 +349,7 @@ export function ManageLists({
                   width="fit-content"
                   onClick={handleImport}
                 >
-                  <Trans>Import</Trans>
+                  Import
                 </ButtonPrimary>
               )}
             </RowBetween>

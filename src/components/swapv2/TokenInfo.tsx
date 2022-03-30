@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Trans } from '@lingui/macro'
+
 import { Currency } from '@dynamic-amm/sdk'
 
 import Coingecko from 'assets/svg/coingecko.svg'
@@ -137,7 +137,7 @@ const TokenInfo = ({ currencies }: { currencies: { [field in Field]?: Currency }
 
         <InfoRow>
           <InfoRowLabel>
-            <Trans>Price</Trans>
+            Price
           </InfoRowLabel>
 
           <InfoRowValue>
@@ -147,7 +147,7 @@ const TokenInfo = ({ currencies }: { currencies: { [field in Field]?: Currency }
 
         <InfoRow>
           <InfoRowLabel>
-            <Trans>Trading Volume (24H)</Trans>
+            Trading Volume (24H)
           </InfoRowLabel>
 
           <InfoRowValue>
@@ -163,7 +163,7 @@ const TokenInfo = ({ currencies }: { currencies: { [field in Field]?: Currency }
 
         <InfoRow>
           <InfoRowLabel>
-            <Trans>Market Cap Rank</Trans>
+            Market Cap Rank
           </InfoRowLabel>
 
           <InfoRowValue>
@@ -179,7 +179,7 @@ const TokenInfo = ({ currencies }: { currencies: { [field in Field]?: Currency }
 
         <InfoRow>
           <InfoRowLabel>
-            <Trans>Market Cap</Trans>
+            Market Cap
           </InfoRowLabel>
 
           <InfoRowValue>
@@ -195,7 +195,7 @@ const TokenInfo = ({ currencies }: { currencies: { [field in Field]?: Currency }
 
         <InfoRow>
           <InfoRowLabel>
-            <Trans>All-Time High</Trans>
+            All-Time High
           </InfoRowLabel>
 
           <InfoRowValue>
@@ -211,7 +211,7 @@ const TokenInfo = ({ currencies }: { currencies: { [field in Field]?: Currency }
 
         <InfoRow>
           <InfoRowLabel>
-            <Trans>All-Time Low</Trans>
+            All-Time Low
           </InfoRowLabel>
 
           <InfoRowValue>
@@ -227,7 +227,7 @@ const TokenInfo = ({ currencies }: { currencies: { [field in Field]?: Currency }
 
         <InfoRow>
           <InfoRowLabel>
-            <Trans>Circulating Supply</Trans>
+            Circulating Supply
           </InfoRowLabel>
 
           <InfoRowValue>
@@ -243,7 +243,7 @@ const TokenInfo = ({ currencies }: { currencies: { [field in Field]?: Currency }
 
         <InfoRow>
           <InfoRowLabel>
-            <Trans>Total Supply</Trans>
+            Total Supply
           </InfoRowLabel>
 
           <InfoRowValue>
@@ -259,7 +259,7 @@ const TokenInfo = ({ currencies }: { currencies: { [field in Field]?: Currency }
 
         <InfoRow style={{ borderBottom: 'none', paddingBottom: 0 }}>
           <InfoRowLabel>
-            <Trans>Contract Address</Trans>
+            Contract Address
           </InfoRowLabel>
 
           <AutoRow width="fit-content" gap="4px">
@@ -278,7 +278,7 @@ const TokenInfo = ({ currencies }: { currencies: { [field in Field]?: Currency }
       </Wrapper>
       <PoweredByWrapper>
         <PoweredByText>
-          <Trans>Powered by</Trans>
+          Powered by
         </PoweredByText>{' '}
         <img src={darkMode ? Coingecko : CoingeckoLight} alt="Coingecko logo" />
       </PoweredByWrapper>

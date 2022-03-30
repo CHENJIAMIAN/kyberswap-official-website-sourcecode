@@ -1,5 +1,5 @@
 import { ChainId, CurrencyAmount, JSBI, Token, TokenAmount, WETH } from '@dynamic-amm/sdk'
-import { t } from '@lingui/macro'
+
 import { DAI, USDC, USDT, WBTC } from '../../constants'
 import { useActiveWeb3React } from '../../hooks'
 import { tryParseAmount } from '../swap/hooks'
@@ -81,10 +81,10 @@ export function useDerivedStakeInfo(
 
   let error: string | undefined
   if (!account) {
-    error = t`Connect wallet`
+    error = `Connect wallet`
   }
   if (!parsedAmount) {
-    error = error ?? t`Enter an amount`
+    error = error ?? `Enter an amount`
   }
 
   return {
@@ -109,10 +109,10 @@ export function useDerivedUnstakeInfo(
 
   let error: string | undefined
   if (!account) {
-    error = t`Connect wallet`
+    error = `Connect wallet`
   }
   if (!parsedAmount) {
-    error = error ?? t`Enter an amount`
+    error = error ?? `Enter an amount`
   }
 
   return {

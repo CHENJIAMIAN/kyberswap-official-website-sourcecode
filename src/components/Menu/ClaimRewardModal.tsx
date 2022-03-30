@@ -1,4 +1,4 @@
-import { Trans, t } from '@lingui/macro'
+
 import CurrencyLogo from 'components/CurrencyLogo'
 import React, { useContext } from 'react'
 import { Flex, Text } from 'rebass'
@@ -60,25 +60,25 @@ function ClaimRewardModal() {
       <Flex flexDirection={'column'} padding="26px 24px" style={{ gap: '25px' }}>
         <RowBetween>
           <Text fontSize={20} fontWeight={500} color={theme.text}>
-            <Trans>Claim your rewards</Trans>
+            Claim your rewards
           </Text>
           <CloseIcon onClick={toggle} />
         </RowBetween>
 
         <AddressWrapper>
           <Text color={theme.subText} fontSize={12}>
-            <Trans>Your wallet address</Trans>
+            Your wallet address
           </Text>
           <p>{account && shortenAddress(account, 9)}</p>
         </AddressWrapper>
         <Text fontSize={16} lineHeight="24px" color={theme.text}>
-          <Trans>If your wallet is eligible, you will be able to claim your reward below. You can claim:</Trans>
+          If your wallet is eligible, you will be able to claim your reward below. You can claim:
         </Text>
         <Text fontSize={32} lineHeight="38px" fontWeight={500}>
           <CurrencyLogo currency={KNCToken} /> {rewardAmounts} KNC
         </Text>
         <ButtonPrimary disabled={!isCanClaim} onClick={claimRewardsCallback}>
-          <Trans>Claim</Trans>
+          Claim
         </ButtonPrimary>
       </Flex>
     )
@@ -92,7 +92,7 @@ function ClaimRewardModal() {
       attemptingTxn={attemptingTxn}
       hash={txHash}
       content={modalContent}
-      pendingText={t`Claiming ${rewardAmounts} KNC`}
+      pendingText={`Claiming ${rewardAmounts} KNC`}
     />
   )
 }

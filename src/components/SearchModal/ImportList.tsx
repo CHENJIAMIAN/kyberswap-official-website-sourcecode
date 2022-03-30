@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
-import { Trans } from '@lingui/macro'
+
 import { TYPE, CloseIcon } from 'theme'
 import Card from 'components/Card'
 import { AutoColumn } from 'components/Column'
@@ -70,7 +70,7 @@ export function ImportList({ listURL, list, setModalView, onDismiss }: ImportPro
         <RowBetween>
           <ArrowLeft style={{ cursor: 'pointer' }} onClick={() => setModalView(CurrencyModalView.manage)} />
           <TYPE.mediumHeader>
-            <Trans>Import List</Trans>
+            Import List
           </TYPE.mediumHeader>
           <CloseIcon onClick={onDismiss} />
         </RowBetween>
@@ -89,7 +89,7 @@ export function ImportList({ listURL, list, setModalView, onDismiss }: ImportPro
                     </TYPE.body>
                     <TextDot />
                     <TYPE.main fontSize={'16px'} ml="6px">
-                      <Trans>{list.tokens.length} tokens</Trans>
+                      {list.tokens.length} tokens
                     </TYPE.main>
                   </RowFixed>
                   <ExternalLink href={`https://tokenlists.org/token-list?url=${listURL}`}>
@@ -105,20 +105,20 @@ export function ImportList({ listURL, list, setModalView, onDismiss }: ImportPro
             <AutoColumn justify="center" style={{ textAlign: 'center', gap: '16px', marginBottom: '12px' }}>
               <AlertTriangle stroke={theme.red1} size={32} />
               <TYPE.body fontWeight={500} fontSize={20} color={theme.red1}>
-                <Trans>Import at your own risk</Trans>{' '}
+                Import at your own risk{' '}
               </TYPE.body>
             </AutoColumn>
 
             <AutoColumn style={{ textAlign: 'center', gap: '16px', marginBottom: '12px' }}>
               <TYPE.body fontWeight={500} color={theme.red1}>
-                <Trans>
+                
                   By adding this list you are implicitly trusting that the data is correct. Anyone can create a list,
                   including creating fake versions of existing lists and lists that claim to represent projects that do
                   not have one.
-                </Trans>
+                
               </TYPE.body>
               <TYPE.body fontWeight={600} color={theme.red1}>
-                <Trans>If you purchase a token from this list, you may not be able to sell it back.</Trans>
+                If you purchase a token from this list, you may not be able to sell it back.
               </TYPE.body>
             </AutoColumn>
             <AutoRow justify="center" style={{ cursor: 'pointer' }} onClick={() => setConfirmed(!confirmed)}>
@@ -129,7 +129,7 @@ export function ImportList({ listURL, list, setModalView, onDismiss }: ImportPro
                 onChange={() => setConfirmed(!confirmed)}
               />
               <TYPE.body ml="10px" fontSize="16px" color={theme.red1} fontWeight={500}>
-                <Trans>I understand</Trans>
+                I understand
               </TYPE.body>
             </AutoRow>
           </Card>
@@ -141,7 +141,7 @@ export function ImportList({ listURL, list, setModalView, onDismiss }: ImportPro
             padding="10px 1rem"
             onClick={handleAddList}
           >
-            <Trans>Import</Trans>
+            Import
           </ButtonPrimary>
           {addError ? (
             <TYPE.error title={addError} style={{ textOverflow: 'ellipsis', overflow: 'hidden' }} error>

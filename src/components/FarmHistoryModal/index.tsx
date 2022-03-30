@@ -2,7 +2,7 @@ import React, { Fragment, useCallback } from 'react'
 import { BigNumber } from '@ethersproject/bignumber'
 import styled from 'styled-components'
 import { Box, Text } from 'rebass'
-import { t, Trans } from '@lingui/macro'
+
 
 import { ChainId, Currency, ETHER } from '@dynamic-amm/sdk'
 import { ZERO_ADDRESS } from 'constants/index'
@@ -127,22 +127,22 @@ const FarmHistoryModal = ({ farms }: { farms: Farm[] }) => {
 
       return <RewardTokenSymbol address={history.rewardToken as string} />
     } else {
-      return t`Unknown`
+      return `Unknown`
     }
   }
 
   const getMethodLabel = (method: FarmHistoryMethod) => {
     switch (method) {
       case FarmHistoryMethod.DEPOSIT:
-        return t`DEPOSIT`
+        return `DEPOSIT`
       case FarmHistoryMethod.WITHDRAW:
-        return t`WITHDRAW`
+        return `WITHDRAW`
       case FarmHistoryMethod.HARVEST:
-        return t`HARVEST`
+        return `HARVEST`
       case FarmHistoryMethod.CLAIM:
-        return t`CLAIM`
+        return `CLAIM`
       default:
-        return t`UNKNOWN`
+        return `UNKNOWN`
     }
   }
 
@@ -151,7 +151,7 @@ const FarmHistoryModal = ({ farms }: { farms: Farm[] }) => {
       <Wrapper>
         <Box overflow="hidden" height="100%">
           <Text className="title">
-            <Trans>History</Trans>
+            History
           </Text>
           {loading && (
             <Text textAlign="center" mt="3" fontSize="12px">
@@ -160,7 +160,7 @@ const FarmHistoryModal = ({ farms }: { farms: Farm[] }) => {
           )}
           {!loading && histories.length === 0 && (
             <Text textAlign="center" mt="3" fontSize="12px">
-              <Trans>No records found.</Trans>
+              No records found.
             </Text>
           )}
           <ScrollAble>

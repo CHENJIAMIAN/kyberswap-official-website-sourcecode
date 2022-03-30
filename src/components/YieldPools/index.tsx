@@ -1,6 +1,6 @@
 import React, { useState, useRef, useMemo, useEffect, useCallback } from 'react'
 import { useMedia } from 'react-use'
-import { t, Trans } from '@lingui/macro'
+
 
 import RainMakerBanner from 'assets/images/rain-maker.png'
 import RainMakerMobileBanner from 'assets/images/rain-maker-mobile.png'
@@ -153,7 +153,7 @@ const YieldPools = ({ loading, active }: { loading: boolean; active?: boolean })
       <ConfirmHarvestingModal />
       <AdContainer>
         <LearnMoreBtn href="https://docs.kyberswap.com/guides/yield-farming" target="_blank" rel="noopener noreferrer">
-          <Trans>Learn more</Trans> -&gt;
+          Learn more -&gt;
         </LearnMoreBtn>
         <img src={mdBreakpoint ? RainMakerBanner : RainMakerMobileBanner} alt="RainMaker" width="100%" />
       </AdContainer>
@@ -165,13 +165,13 @@ const YieldPools = ({ loading, active }: { loading: boolean; active?: boolean })
             onClick={() => setStakedOnly(prev => ({ ...prev, [activeTab]: !prev[activeTab] }))}
           />
           <StakedOnlyToggleText>
-            <Trans>Staked Only</Trans>
+            Staked Only
           </StakedOnlyToggleText>
         </StakedOnlyToggleWrapper>
         <HeadingRight>
           <SearchContainer>
             <SearchInput
-              placeholder={t`Search by token name or pool address`}
+              placeholder={`Search by token name or pool address`}
               maxLength={255}
               value={searchText}
               onChange={e => setSearchText(e.target.value)}
@@ -184,7 +184,7 @@ const YieldPools = ({ loading, active }: { loading: boolean; active?: boolean })
             disabled={totalRewardsUSD <= 0}
           >
             <Flex width="max-content">
-              <Trans>My Total Rewards</Trans>:
+              My Total Rewards:
               <Text marginLeft="4px">{totalRewardsUSD ? formattedNum(totalRewardsUSD.toString(), true) : '$0'}</Text>
             </Flex>
 
@@ -212,46 +212,46 @@ const YieldPools = ({ loading, active }: { loading: boolean; active?: boolean })
         <TableHeader>
           <Flex grid-area="pools" alignItems="center" justifyContent="flex-start">
             <ClickableText>
-              <Trans>Pools | AMP</Trans>
+              Pools | AMP
             </ClickableText>
             <InfoHelper text={AMP_HINT} />
           </Flex>
 
           <Flex grid-area="liq" alignItems="center" justifyContent="flex-center">
             <ClickableText>
-              <Trans>Staked TVL</Trans>
+              Staked TVL
             </ClickableText>
           </Flex>
 
           <Flex grid-area="end" alignItems="center" justifyContent="flex-start">
             <ClickableText>
-              <Trans>Ending In</Trans>
+              Ending In
             </ClickableText>
-            <InfoHelper text={t`Once a farm has ended, you will continue to receive returns through LP Fees`} />
+            <InfoHelper text={`Once a farm has ended, you will continue to receive returns through LP Fees`} />
           </Flex>
 
           <Flex grid-area="apy" alignItems="center" justifyContent="flex-end">
             <ClickableText>
-              <Trans>APR</Trans>
+              APR
             </ClickableText>
             <InfoHelper
               text={
                 active
-                  ? t`Total estimated return based on yearly fees and bonus rewards of the pool`
-                  : t`Estimated return based on yearly fees of the pool`
+                  ? `Total estimated return based on yearly fees and bonus rewards of the pool`
+                  : `Estimated return based on yearly fees of the pool`
               }
             />
           </Flex>
 
           <Flex grid-area="reward" alignItems="center" justifyContent="flex-end">
             <ClickableText>
-              <Trans>My Rewards</Trans>
+              My Rewards
             </ClickableText>
           </Flex>
 
           <Flex grid-area="staked_balance" alignItems="center" justifyContent="flex-end">
             <ClickableText>
-              <Trans>My Deposit</Trans>
+              My Deposit
             </ClickableText>
           </Flex>
         </TableHeader>
@@ -270,9 +270,9 @@ const YieldPools = ({ loading, active }: { loading: boolean; active?: boolean })
         >
           <Text color={theme.subText}>
             {stakedOnly[activeTab] || debouncedSearchText ? (
-              <Trans>No Farms found</Trans>
+              `No Farms found`
             ) : (
-              <Trans>Currently there are no Farms.</Trans>
+              `Currently there are no Farms.`
             )}
           </Text>
         </Flex>

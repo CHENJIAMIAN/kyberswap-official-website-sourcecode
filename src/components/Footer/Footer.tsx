@@ -8,7 +8,7 @@ import { KYBER_NETWORK_DISCORD_URL, KYBER_NETWORK_TWITTER_URL } from 'constants/
 import useTheme from 'hooks/useTheme'
 import Medium from 'components/Icons/Medium'
 import { ExternalLink } from 'theme'
-import { Trans, t } from '@lingui/macro'
+
 import PoweredByIconDark from 'components/Icons/PoweredByIconDark'
 import { useIsDarkMode } from 'state/user/hooks'
 import PoweredByIconLight from 'components/Icons/PoweredByIconLight'
@@ -110,7 +110,7 @@ function Footer() {
         <InfoWrapper>
           <Item>
             <Text marginRight="6px">
-              <Trans>Powered By</Trans>
+              Powered By
             </Text>
             <ExternalLink href="https://kyber.network" style={{ display: 'flex' }}>
               {isDarkMode ? <PoweredByIconDark width={48} /> : <PoweredByIconLight width={48} />}
@@ -120,8 +120,8 @@ function Footer() {
 
           <Item>
             <Text marginRight="6px" display="flex">
-              <Trans>Audited By</Trans>
-              {!above768 && <InfoHelper size={14} text={t`Covers smart-contracts`} placement="top" />}
+              Audited By
+              {!above768 && <InfoHelper size={14} text={`Covers smart-contracts`} placement="top" />}
             </Text>
             <ExternalLink
               href="https://chainsecurity.com/security-audit/kyber-network-dynamic-market-maker-dmm/"
@@ -137,13 +137,13 @@ function Footer() {
                 width="98px"
               />
             </ExternalLink>
-            {above768 && <InfoHelper size={14} text={t`Covers smart-contracts`} placement="top" />}
+            {above768 && <InfoHelper size={14} text={`Covers smart-contracts`} placement="top" />}
           </Item>
           <Separator />
           <Item>
             <Text marginRight="6px" display="flex">
-              <Trans>Insured by</Trans>
-              {!above768 && <InfoHelper size={14} text={t`Covers smart-contracts`} placement="top" />}
+              Insured by
+              {!above768 && <InfoHelper size={14} text={`Covers smart-contracts`} placement="top" />}
             </Text>
 
             <ExternalLink
@@ -165,7 +165,7 @@ function Footer() {
                 />
               </svg>
             </ExternalLink>
-            {above768 && <InfoHelper size={14} text={t`Covers smart-contracts`} placement="top" />}
+            {above768 && <InfoHelper size={14} text={`Covers smart-contracts`} placement="top" />}
           </Item>
         </InfoWrapper>
         <FooterSocialLink />

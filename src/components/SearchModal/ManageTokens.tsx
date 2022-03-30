@@ -1,5 +1,5 @@
 import React, { useRef, RefObject, useCallback, useState, useMemo } from 'react'
-import { t, Trans } from '@lingui/macro'
+
 import Column from 'components/Column'
 import { PaddedColumn, Separator, SearchInput } from './styleds'
 import Row, { RowBetween, RowFixed } from 'components/Row'
@@ -111,7 +111,7 @@ export default function ManageTokens({
           </Row>
           {searchQuery !== '' && !isAddressSearch && (
             <TYPE.error error={true}>
-              <Trans>Enter valid token address</Trans>
+              Enter valid token address
             </TYPE.error>
           )}
           {searchToken && (
@@ -129,12 +129,12 @@ export default function ManageTokens({
         <PaddedColumn gap="lg">
           <RowBetween>
             <TYPE.main fontWeight={600}>
-              {userAddedTokens?.length} <Trans>Custom</Trans> {userAddedTokens.length === 1 ? t`Token` : t`Tokens`}
+              {userAddedTokens?.length} Custom {userAddedTokens.length === 1 ? `Token` : `Tokens`}
             </TYPE.main>
             {userAddedTokens.length > 0 && (
               <ButtonText onClick={handleRemoveAll}>
                 <TYPE.blue>
-                  <Trans>Clear all</Trans>
+                  Clear all
                 </TYPE.blue>
               </ButtonText>
             )}
@@ -144,7 +144,7 @@ export default function ManageTokens({
       </Column>
       <Footer>
         <TYPE.darkGray>
-          <Trans>Tip: Custom tokens are stored locally in your browser</Trans>
+          Tip: Custom tokens are stored locally in your browser
         </TYPE.darkGray>
       </Footer>
     </Wrapper>

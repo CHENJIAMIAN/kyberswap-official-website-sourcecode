@@ -6,7 +6,7 @@ import { useCurrency } from '../../hooks/Tokens'
 import useENS from '../../hooks/useENS'
 import { useCurrencyBalances } from '../wallet/hooks'
 import { useTradeExactInV2 } from '../../hooks/Trades'
-import { t } from '@lingui/macro'
+
 import { isAddress } from '../../utils'
 import { BAD_RECIPIENT_ADDRESSES } from '../../constants'
 import { useUserSlippageTolerance } from '../user/hooks'
@@ -130,24 +130,24 @@ export function useDerivedSwapInfoV2(): {
 
   let inputError: string | undefined
   if (!account) {
-    inputError = t`Connect wallet`
+    inputError = `Connect wallet`
   }
 
   if (!parsedAmount) {
-    if (typedValue) inputError = inputError ?? t`Invalid amount`
-    else inputError = inputError ?? t`Enter an amount`
+    if (typedValue) inputError = inputError ?? `Invalid amount`
+    else inputError = inputError ?? `Enter an amount`
   }
 
   if (!currencies[Field.INPUT] || !currencies[Field.OUTPUT]) {
-    inputError = inputError ?? t`Select a token`
+    inputError = inputError ?? `Select a token`
   }
 
   const formattedTo = isAddress(to)
   if (!to || !formattedTo) {
-    inputError = inputError ?? t`Enter a recipient`
+    inputError = inputError ?? `Enter a recipient`
   } else {
     if (BAD_RECIPIENT_ADDRESSES.indexOf(formattedTo) !== -1) {
-      inputError = inputError ?? t`Invalid recipient`
+      inputError = inputError ?? `Invalid recipient`
     }
   }
 
@@ -162,7 +162,7 @@ export function useDerivedSwapInfoV2(): {
   ]
 
   if (amountIn && ((balanceIn && balanceIn.lessThan(amountIn)) || !balanceIn)) {
-    inputError = t`Insufficient ${convertToNativeTokenFromETH(amountIn.currency, chainId).symbol} balance`
+    inputError = `Insufficient ${convertToNativeTokenFromETH(amountIn.currency, chainId).symbol} balance`
   }
 
   return {

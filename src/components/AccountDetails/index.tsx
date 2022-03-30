@@ -1,7 +1,7 @@
 import React, { useCallback, useContext } from 'react'
 import { useDispatch } from 'react-redux'
 import styled, { ThemeContext } from 'styled-components'
-import { Trans } from '@lingui/macro'
+
 import { useActiveWeb3React } from '../../hooks'
 import { AppDispatch } from '../../state'
 import { clearAllTransactions } from '../../state/transactions/actions'
@@ -243,7 +243,7 @@ export default function AccountDetails({
       .map(k => SUPPORTED_WALLETS[k].name)[0]
     return (
       <WalletName>
-        <Trans>Connected with {name}</Trans>
+        Connected with {name}
       </WalletName>
     )
   }
@@ -283,7 +283,7 @@ export default function AccountDetails({
                 portis.portis.showPortis()
               }}
             >
-              <Trans>Show Portis</Trans>
+              Show Portis
             </MainWalletAction>
           </IconWrapper>
         </>
@@ -303,7 +303,7 @@ export default function AccountDetails({
           <CloseColor />
         </CloseIcon>
         <HeaderRow>
-          <Trans>Account</Trans>
+          Account
         </HeaderRow>
         <AccountSection>
           <YourAccount>
@@ -318,7 +318,7 @@ export default function AccountDetails({
                         ;(connector as any).close()
                       }}
                     >
-                      <Trans>Disconnect</Trans>
+                      Disconnect
                     </WalletAction>
                   )}
                   <WalletAction
@@ -327,7 +327,7 @@ export default function AccountDetails({
                       openOptions()
                     }}
                   >
-                    <Trans>Change</Trans>
+                    Change
                   </WalletAction>
                 </div>
               </AccountGroupingRow>
@@ -358,7 +358,7 @@ export default function AccountDetails({
                         {account && (
                           <Copy toCopy={account}>
                             <span style={{ marginLeft: '4px' }}>
-                              <Trans>Copy Address</Trans>
+                              Copy Address
                             </span>
                           </Copy>
                         )}
@@ -382,7 +382,7 @@ export default function AccountDetails({
                         {account && (
                           <Copy toCopy={account}>
                             <span style={{ marginLeft: '4px' }}>
-                              <Trans>Copy Address</Trans>
+                              Copy Address
                             </span>
                           </Copy>
                         )}
@@ -409,7 +409,7 @@ export default function AccountDetails({
         <LowerSection>
           <AutoRow mb={'1rem'} style={{ justifyContent: 'space-between' }}>
             <TYPE.body>
-              <Trans>Recent Transactions</Trans>
+              Recent Transactions
             </TYPE.body>
             <LinkStyledButton onClick={clearAllTransactionsCallback}>(clear all)</LinkStyledButton>
           </AutoRow>
@@ -419,7 +419,7 @@ export default function AccountDetails({
       ) : (
         <LowerSection>
           <TYPE.body color={theme.text}>
-            <Trans>Your transactions will appear here...</Trans>
+            Your transactions will appear here...
           </TYPE.body>
         </LowerSection>
       )}

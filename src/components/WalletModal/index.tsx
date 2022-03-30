@@ -4,7 +4,7 @@ import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
 import React, { useEffect, useState } from 'react'
 import { isMobile } from 'react-device-detect'
 import styled from 'styled-components'
-import { t, Trans } from '@lingui/macro'
+
 import MetamaskIcon from '../../assets/images/metamask.png'
 import { ReactComponent as Close } from '../../assets/images/x.svg'
 import { fortmatic, injected, portis } from '../../connectors'
@@ -306,7 +306,7 @@ export default function WalletModal({
               </CloseIcon>
               <HeaderRow padding="1rem">{'Error connecting'}</HeaderRow>
               <ContentWrapper padding="1rem 1.5rem 1.5rem">
-                {t`Error connecting. Try refreshing the page.`}
+                {`Error connecting. Try refreshing the page.`}
               </ContentWrapper>
             </UpperSection>
           )}
@@ -337,13 +337,13 @@ export default function WalletModal({
                 setWalletView(WALLET_VIEWS.ACCOUNT)
               }}
             >
-              <Trans>Back</Trans>
+              Back
             </HoverText>
           </HeaderRow>
         ) : (
           <HeaderRow>
             <HoverText>
-              <Trans>Import your Wallet</Trans>
+              Import your Wallet
             </HoverText>
           </HeaderRow>
         )}
@@ -362,13 +362,13 @@ export default function WalletModal({
         <FooterRow>
           <input type="checkbox" checked={isAccepted} onChange={handleAccept} style={{ marginRight: '12px' }} />
           <ToSText>
-            <Trans>Accept</Trans>{' '}
+            Accept{' '}
             <ExternalLink href="/15022022KyberSwapTermsofUse.pdf">
-              <Trans>Terms of Use</Trans>
+              Terms of Use
             </ExternalLink>{' '}
-            <Trans>and</Trans>{' '}
+            and{' '}
             <ExternalLink href="http://files.dmm.exchange/privacy.pdf">
-              <Trans>Privacy Policy</Trans>
+              Privacy Policy
             </ExternalLink>
           </ToSText>
         </FooterRow>

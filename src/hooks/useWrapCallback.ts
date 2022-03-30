@@ -1,4 +1,4 @@
-import { t } from '@lingui/macro'
+
 import { Currency, currencyEquals, ETHER, WETH } from '@dynamic-amm/sdk'
 import { useMemo } from 'react'
 import { calculateGasMargin } from 'utils'
@@ -67,10 +67,10 @@ export default function useWrapCallback(
               }
             : undefined,
         inputError: !typedValue
-          ? t`Enter an amount`
+          ? `Enter an amount`
           : sufficientBalance
           ? undefined
-          : t`Insufficient ${convertToNativeTokenFromETH(Currency.ETHER, chainId).symbol} balance`
+          : `Insufficient ${convertToNativeTokenFromETH(Currency.ETHER, chainId).symbol} balance`
       }
     } else if (currencyEquals(WETH[chainId], inputCurrency) && outputCurrency === ETHER) {
       return {
@@ -95,10 +95,10 @@ export default function useWrapCallback(
               }
             : undefined,
         inputError: !typedValue
-          ? t`Enter an amount`
+          ? `Enter an amount`
           : sufficientBalance
           ? undefined
-          : t`Insufficient W${convertToNativeTokenFromETH(Currency.ETHER, chainId).symbol} balance`
+          : `Insufficient W${convertToNativeTokenFromETH(Currency.ETHER, chainId).symbol} balance`
       }
     } else {
       return NOT_APPLICABLE

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Trans } from '@lingui/macro'
+
 
 const ToggleButton = styled.span<{ isActive?: boolean; size?: string }>`
   position: absolute;
@@ -53,10 +53,10 @@ export default function Toggle({ id, isActive, toggle, size = 'sm' }: ToggleProp
   return (
     <StyledToggle id={id} isActive={isActive} onClick={toggle} size={size}>
       <ToggleElement isActive={isActive} size={size}>
-        <Trans>On</Trans>
+        On
       </ToggleElement>
       <ToggleElement isActive={!isActive} size={size} isOff>
-        <Trans>Off</Trans>
+        Off
       </ToggleElement>
       <ToggleButton isActive={isActive} size={size} />
     </StyledToggle>

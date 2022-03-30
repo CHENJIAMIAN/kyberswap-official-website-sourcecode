@@ -18,7 +18,7 @@ import useTheme from 'hooks/useTheme'
 import { useIsDarkMode } from 'state/user/hooks'
 import { useFairLaunchVersion } from 'hooks/useContract'
 import { Text } from 'rebass'
-import { Trans } from '@lingui/macro'
+
 import { ExternalLink } from 'theme'
 
 interface FarmsListProps {
@@ -126,10 +126,10 @@ const FairLaunchPools = ({ fairLaunchAddress, farms }: FarmsListProps) => {
           <FairLaunchPoolsTitle backgroundColor={isDarkMode ? `${theme.bg12}40` : `${theme.bg12}80`}>
             <Text fontSize={14} fontStyle="italic" color={theme.subText}>
               {outsideFarm && (
-                <Trans>
+                <>
                   This pool require {outsideFarm.name} LP Tokens. Get the LP Tokens{' '}
                   <ExternalLink href={outsideFarm.getLPTokenLink}>here ↗</ExternalLink>{' '}
-                </Trans>
+                </>
               )}
             </Text>
 

@@ -1,7 +1,7 @@
 import { Currency, TradeType } from '@dynamic-amm/sdk'
 import React, { useContext, useState } from 'react'
 import styled, { ThemeContext } from 'styled-components'
-import { t, Trans } from '@lingui/macro'
+
 import { Field } from '../../state/swap/actions'
 import { useUserSlippageTolerance } from '../../state/user/hooks'
 import { TYPE } from '../../theme'
@@ -31,7 +31,7 @@ interface TradeSummaryProps {
 
 function TradeSummary({ trade, feeConfig, allowedSlippage }: TradeSummaryProps) {
   const theme = useContext(ThemeContext)
-  const [show, setShow] = useState(feeConfig ? true : false)
+  const [show, setShow] = useState(true)
 
   const isExactIn = trade.tradeType === TradeType.EXACT_INPUT
   const slippageAdjustedAmounts = computeSlippageAdjustedAmounts(trade, allowedSlippage)
@@ -43,7 +43,7 @@ function TradeSummary({ trade, feeConfig, allowedSlippage }: TradeSummaryProps) 
       <AutoColumn gap="0.75rem">
         <RowBetween style={{ cursor: 'pointer' }} onClick={() => setShow(prev => !prev)} role="button">
           <Text fontSize={12} fontWeight={500} color={theme.text}>
-            <Trans>MORE INFORMATION</Trans>
+            MORE INFORMATION
           </Text>
           <IconWrapper show={show}>
             <ChevronUp size={16} color={theme.text} />
@@ -55,9 +55,9 @@ function TradeSummary({ trade, feeConfig, allowedSlippage }: TradeSummaryProps) 
             <RowBetween>
               <RowFixed>
                 <TYPE.black fontSize={12} fontWeight={400} color={theme.subText}>
-                  {isExactIn ? t`Minimum Received` : t`Maximum Sold`}
+                  {isExactIn ? `Minimum Received` : `Maximum Sold`}
                 </TYPE.black>
-                <InfoHelper size={14} text={t`Minimum amount you will receive or your transaction will revert`} />
+                <InfoHelper size={14} text={`Minimum amount you will receive or your transaction will revert`} />
               </RowFixed>
               <RowFixed>
                 <TYPE.black color={theme.text} fontSize={12}>
@@ -76,10 +76,10 @@ function TradeSummary({ trade, feeConfig, allowedSlippage }: TradeSummaryProps) 
             <RowBetween>
               <RowFixed>
                 <TYPE.black fontSize={12} fontWeight={400} color={theme.subText}>
-                  <Trans>Gas Fee</Trans>
+                  Gas Fee
                 </TYPE.black>
 
-                <InfoHelper size={14} text={t`Estimated network fee for your transaction`} />
+                <InfoHelper size={14} text={`Estimated network fee for your transaction`} />
               </RowFixed>
               <TYPE.black color={theme.text} fontSize={12}>
                 {formattedNum(trade.gasUsd?.toString(), true)}
@@ -89,9 +89,9 @@ function TradeSummary({ trade, feeConfig, allowedSlippage }: TradeSummaryProps) 
             <RowBetween>
               <RowFixed>
                 <TYPE.black fontSize={12} fontWeight={400} color={theme.subText}>
-                  <Trans>Price Impact</Trans>
+                  Price Impact
                 </TYPE.black>
-                <InfoHelper size={14} text={t`Estimated change in price due to the size of your transaction`} />
+                <InfoHelper size={14} text={`Estimated change in price due to the size of your transaction`} />
               </RowFixed>
               <TYPE.black fontSize={12} color={trade.priceImpact > 5 ? theme.red : theme.text}>
                 {trade.priceImpact > 0.01 ? trade.priceImpact.toFixed(3) : '< 0.01'}%
@@ -101,9 +101,9 @@ function TradeSummary({ trade, feeConfig, allowedSlippage }: TradeSummaryProps) 
               <RowBetween>
                 <RowFixed>
                   <TYPE.black fontSize={12} fontWeight={400} color={theme.subText}>
-                    <Trans>Referral Fee</Trans>
+                    Referral Fee
                   </TYPE.black>
-                  <InfoHelper size={14} text={t`Commission fee to be paid directly to your referrer`} />
+                  <InfoHelper size={14} text={`Commission fee to be paid directly to your referrer`} />
                 </RowFixed>
                 <TYPE.black color={theme.text} fontSize={12}>
                   {formattedNum(
@@ -116,12 +116,12 @@ function TradeSummary({ trade, feeConfig, allowedSlippage }: TradeSummaryProps) 
             {/* <RowBetween>
               <RowFixed>
                 <TYPE.black fontSize={12} fontWeight={400} color={theme.subText}>
-                  <Trans>Route</Trans>
+                  Route
                 </TYPE.black>
               </RowFixed>
               <ButtonEmpty padding="0" width="max-content" onClick={toggleRoute}>
                 <Text fontSize={12} marginRight="4px">
-                  <Trans>View your trade route</Trans>
+                  View your trade route
                 </Text>
                 <Eye size={16} />
               </ButtonEmpty>

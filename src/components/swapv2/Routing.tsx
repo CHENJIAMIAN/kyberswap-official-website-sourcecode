@@ -506,38 +506,36 @@ const Routing = ({ trade, currencies, parsedAmounts, maxHeight, backgroundColor 
   const { feeConfig, typedValue } = useSwapState()
   return (
     <Shadow ref={shadowRef as any} backgroundColor={backgroundColor}>
-      <StyledContainer ref={wrapperRef as any} onScroll={handleScroll} style={{ maxHeight: maxHeight || '100%' }}>
-        <div ref={contentRef as any}>
-          <StyledPair>
-            <StyledWrapToken>
-              {renderTokenInfo(!!feeConfig ? typedValue : trade?.inputAmount, Field.INPUT)}
-            </StyledWrapToken>
-            {!hasRoutes && <StyledPairLine />}
-            <StyledWrapToken>{renderTokenInfo(trade?.outputAmount, Field.OUTPUT)}</StyledWrapToken>
-          </StyledPair>
+      <div ref={contentRef as any}>
+        <StyledPair>
+          <StyledWrapToken>
+            {renderTokenInfo(!!feeConfig ? typedValue : trade?.inputAmount, Field.INPUT)}
+          </StyledWrapToken>
+          {!hasRoutes && <StyledPairLine />}
+          <StyledWrapToken>{renderTokenInfo(trade?.outputAmount, Field.OUTPUT)}</StyledWrapToken>
+        </StyledPair>
 
-          {trade && chainId && tradeComposition && tradeComposition.length > 0 ? (
-            <div>
-              <StyledRoutes>
-                <StyledDot />
-                <StyledDot out />
-                {tradeComposition.map((route, index) => (
-                  <StyledRoute key={index}>
-                    <StyledPercent backgroundColor={backgroundColor}>
-                      {getSwapPercent(route.swapPercentage, tradeComposition.length)}
-                    </StyledPercent>
-                    <StyledRouteLine />
-                    <RouteRow route={route} chainId={chainId} backgroundColor={backgroundColor} />
-                    <StyledHopChevronWrapper backgroundColor={backgroundColor} style={{ marginRight: '2px' }}>
-                      <StyledHopChevronRight />
-                    </StyledHopChevronWrapper>
-                  </StyledRoute>
-                ))}
-              </StyledRoutes>
-            </div>
-          ) : null}
-        </div>
-      </StyledContainer>
+        {trade && chainId && tradeComposition && tradeComposition.length > 0 ? (
+          <div>
+            <StyledRoutes>
+              <StyledDot />
+              <StyledDot out />
+              {tradeComposition.map((route, index) => (
+                <StyledRoute key={index}>
+                  <StyledPercent backgroundColor={backgroundColor}>
+                    {getSwapPercent(route.swapPercentage, tradeComposition.length)}
+                  </StyledPercent>
+                  <StyledRouteLine />
+                  <RouteRow route={route} chainId={chainId} backgroundColor={backgroundColor} />
+                  <StyledHopChevronWrapper backgroundColor={backgroundColor} style={{ marginRight: '2px' }}>
+                    <StyledHopChevronRight />
+                  </StyledHopChevronWrapper>
+                </StyledRoute>
+              ))}
+            </StyledRoutes>
+          </div>
+        ) : null}
+      </div>
     </Shadow>
   )
 }

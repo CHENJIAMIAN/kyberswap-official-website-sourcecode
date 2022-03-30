@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { t } from '@lingui/macro'
+
 
 import { escapeRegExp } from '../../utils'
 
@@ -73,7 +73,7 @@ export const Input = React.memo(function InnerInput({
       }}
       // universal input options
       inputMode="decimal"
-      title={t`Token Amount`}
+      title={`Token Amount`}
       autoComplete="off"
       autoCorrect="off"
       // text-specific options

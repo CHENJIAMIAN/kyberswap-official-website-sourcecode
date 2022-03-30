@@ -2,7 +2,7 @@ import React, { CSSProperties, MutableRefObject, useCallback, useMemo } from 're
 import { FixedSizeList } from 'react-window'
 import { Text } from 'rebass'
 import styled from 'styled-components'
-import { t, Trans } from '@lingui/macro'
+
 
 import { Currency, CurrencyAmount, currencyEquals, ETHER, Token } from '@dynamic-amm/sdk'
 import { useActiveWeb3React } from '../../hooks'
@@ -141,7 +141,7 @@ function CurrencyRow({
           {nativeCurrency?.symbol}
         </Text>
         <TYPE.darkGray ml="0px" fontSize={'12px'} fontWeight={300}>
-          {nativeCurrency?.name} {!isOnSelectedList && customAdded && t`• Added by user`}
+          {nativeCurrency?.name} {!isOnSelectedList && customAdded && `• Added by user`}
         </TYPE.darkGray>
       </Column>
       <TokenTags currency={currency} />
@@ -213,11 +213,11 @@ export default function CurrencyList({
                 <RowFixed>
                   <TokenListLogoWrapper src={TokenListLogo} />
                   <TYPE.main ml="6px" fontSize="12px" color={theme.text}>
-                    <Trans>Expanded results from inactive Token Lists</Trans>
+                    Expanded results from inactive Token Lists
                   </TYPE.main>
                 </RowFixed>
                 <QuestionHelper
-                  text={t`Tokens from inactive lists. Import specific tokens below or click 'Manage' to activate more lists.`}
+                  text={`Tokens from inactive lists. Import specific tokens below or click 'Manage' to activate more lists.`}
                 />
               </RowBetween>
             </LightGreyCard>

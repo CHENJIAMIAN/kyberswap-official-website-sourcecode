@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useWeb3React } from '@web3-react/core'
 import styled from 'styled-components'
-import { Trans } from '@lingui/macro'
+
 
 import { network } from '../../connectors'
 import { useEagerConnect, useInactiveListener } from '../../hooks'
@@ -58,9 +58,9 @@ export default function Web3ReactManager({ children }: { children: JSX.Element }
     return (
       <MessageWrapper>
         <Message>
-          <Trans>
+          
             Oops! An unknown error occurred. Please refresh the page, or visit from another browser or device.
-          </Trans>
+          
         </Message>
       </MessageWrapper>
     )

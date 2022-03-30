@@ -6,7 +6,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useAllTransactions, useTransactionAdder } from 'state/transactions/hooks'
 import useSWR from 'swr'
 import { getClaimRewardContract } from 'utils'
-import { t } from '@lingui/macro'
+
 
 export default function useClaimReward() {
   const { chainId, account, library } = useActiveWeb3React()
@@ -102,7 +102,7 @@ export default function useClaimReward() {
               )
             } else {
               setRewardAmounts('0')
-              throw new Error(t`Insufficient reward amount available for claim!`)
+              throw new Error(`Insufficient reward amount available for claim!`)
             }
           } else {
             throw new Error()
@@ -119,7 +119,7 @@ export default function useClaimReward() {
         .catch((err: any) => {
           //on invalid claim reward
           setAttemptingTxn(false)
-          setError(err.message || t`Something is wrong. Please try again later!`)
+          setError(err.message || `Something is wrong. Please try again later!`)
         })
     }
   }, [

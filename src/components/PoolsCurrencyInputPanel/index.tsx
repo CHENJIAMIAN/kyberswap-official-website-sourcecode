@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
 import { darken } from 'polished'
-import { Trans } from '@lingui/macro'
+
 import { Currency, Pair } from '@dynamic-amm/sdk'
 
 import CurrencySearchModal from 'components/SearchModal/CurrencySearchModal'
@@ -165,7 +165,7 @@ export default function PoolsCurrencyInputPanel({
                       ? nativeCurrency.symbol.slice(0, 4) +
                         '...' +
                         nativeCurrency.symbol.slice(nativeCurrency.symbol.length - 5, nativeCurrency.symbol.length)
-                      : nativeCurrency?.symbol) || <Trans>All Tokens</Trans>}
+                      : nativeCurrency?.symbol) || `All Tokens`}
                   </StyledTokenName>
                 )}
               </LogoNameWrapper>

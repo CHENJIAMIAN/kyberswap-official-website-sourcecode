@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import { Trans } from '@lingui/macro'
+
 import { ChevronDown, ChevronUp } from 'react-feather'
 import { Flex } from 'rebass'
 import { BigNumber } from '@ethersproject/bignumber'
@@ -38,7 +38,7 @@ const HarvestAll = ({ totalRewards, onHarvestAll }: { totalRewards: Reward[]; on
           onClick={toggleRewardDetail}
         >
           <TYPE.body color={theme.text11} fontWeight={'normal'} fontSize={14}>
-            <Trans>Rewards</Trans>:
+            Rewards:
           </TYPE.body>
 
           <Flex alignItems="center" marginLeft="4px">
@@ -75,7 +75,7 @@ const HarvestAll = ({ totalRewards, onHarvestAll }: { totalRewards: Reward[]; on
       </Tag>
 
       <ButtonPrimary height="30px" borderRadius="4px" onClick={onHarvestAll} disabled={!canHarvestAll}>
-        <Trans>Harvest All</Trans>
+        Harvest All
       </ButtonPrimary>
     </Flex>
   )

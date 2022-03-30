@@ -13,7 +13,7 @@ import {
 import { useCallback, useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { BigNumber } from '@ethersproject/bignumber'
-import { t } from '@lingui/macro'
+
 import { convertToNativeTokenFromETH } from 'utils/dmm'
 import { PairState, usePairByAddress, useUnAmplifiedPair } from '../../data/Reserves'
 import { useTotalSupply } from '../../data/TotalSupply'
@@ -161,7 +161,7 @@ export function useDerivedMintInfo(
 
   let error: string | undefined
   if (!account) {
-    error = t`Connect wallet`
+    error = `Connect wallet`
   }
 
   if ((pairAddress && pairState === PairState.INVALID) || (tokenA?.symbol === 'WETH' && tokenB?.symbol === 'WETH')) {
@@ -176,21 +176,21 @@ export function useDerivedMintInfo(
     currencyBAmount?.toExact() === '0' ||
     currencyAAmount?.toExact() === '0'
   ) {
-    error = error ?? t`Invalid amount`
+    error = error ?? `Invalid amount`
   }
 
   if (!parsedAmounts[Field.CURRENCY_A] || !parsedAmounts[Field.CURRENCY_B]) {
-    error = error ?? t`Enter an amount`
+    error = error ?? `Enter an amount`
   }
 
   const cA = currencies[Field.CURRENCY_A]
   const cB = currencies[Field.CURRENCY_B]
   if (!!cA && currencyAAmount && currencyBalances?.[Field.CURRENCY_A]?.lessThan(currencyAAmount)) {
-    error = t`Insufficient ${convertToNativeTokenFromETH(cA, chainId).symbol} balance`
+    error = `Insufficient ${convertToNativeTokenFromETH(cA, chainId).symbol} balance`
   }
 
   if (!!cB && currencyBAmount && currencyBalances?.[Field.CURRENCY_B]?.lessThan(currencyBAmount)) {
-    error = t`Insufficient ${convertToNativeTokenFromETH(cB, chainId).symbol} balance`
+    error = `Insufficient ${convertToNativeTokenFromETH(cB, chainId).symbol} balance`
   }
 
   return {
@@ -383,7 +383,7 @@ export function useDerivedZapInInfo(
   let insufficientLiquidity = false
   let error: string | undefined
   if (!account) {
-    error = t`Connect wallet`
+    error = `Connect wallet`
   }
 
   if ((pairAddress && pairState === PairState.INVALID) || (tokenA?.symbol === 'WETH' && tokenB?.symbol === 'WETH')) {
@@ -391,7 +391,7 @@ export function useDerivedZapInInfo(
   }
 
   if (!typedValue && (!parsedAmounts[independentField] || !parsedAmounts[dependentField])) {
-    error = error ?? t`Enter an amount`
+    error = error ?? `Enter an amount`
   }
 
   if (
@@ -399,7 +399,7 @@ export function useDerivedZapInInfo(
     parsedAmounts[independentField]?.toExact() === '0' ||
     parsedAmounts[dependentField]?.toExact() === '0'
   ) {
-    error = error ?? t`Invalid amount`
+    error = error ?? `Invalid amount`
   }
 
   const selectedCurrency = currencies[independentField]
@@ -410,7 +410,7 @@ export function useDerivedZapInInfo(
     (currencyBalances?.[independentField]?.lessThan(independentAmount) ||
       currencyBalances?.[independentField]?.lessThan(userInCurrencyAmount))
   ) {
-    error = t`Insufficient ${convertToNativeTokenFromETH(selectedCurrency, chainId).symbol} balance`
+    error = `Insufficient ${convertToNativeTokenFromETH(selectedCurrency, chainId).symbol} balance`
   }
 
   if (zapInAmounts.error && zapInAmounts.error.message.includes('INSUFFICIENT_LIQUIDITY')) {
@@ -418,7 +418,7 @@ export function useDerivedZapInInfo(
   }
 
   if (zapInAmounts.error && !zapInAmounts.error.message.includes('INSUFFICIENT_LIQUIDITY')) {
-    error = t`Something went wrong`
+    error = `Something went wrong`
   }
 
   return {

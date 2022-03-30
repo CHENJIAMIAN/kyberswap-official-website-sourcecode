@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Trans } from '@lingui/macro'
+
 
 import { NETWORK_ICON, NETWORK_LABEL, SUPPORTED_NETWORKS } from '../../constants/networks'
 import { useWalletModalToggle } from '../../state/application/hooks'
@@ -81,7 +81,7 @@ export default function WrongNetworkModal(): JSX.Element | null {
     <Wrapper>
       <Flex alignItems="center" justifyContent="space-between">
         <Text fontWeight="500" fontSize={20}>
-          <Trans>Wrong Network</Trans>
+          Wrong Network
         </Text>
 
         <Flex sx={{ cursor: 'pointer' }} role="button" onClick={toggleWalletModal}>
@@ -89,7 +89,7 @@ export default function WrongNetworkModal(): JSX.Element | null {
         </Flex>
       </Flex>
       <Text fontWeight="500" fontSize={16} color={theme.subText} marginTop={14}>
-        <Trans>Please connect to the appropriate network.</Trans>
+        Please connect to the appropriate network.
       </Text>
       <NetworkList>
         {SUPPORTED_NETWORKS.map((key: ChainId, i: number) => {

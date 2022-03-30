@@ -5,7 +5,6 @@ import { Provider } from 'react-redux'
 import { HashRouter } from 'react-router-dom'
 
 import { NetworkContextName, sentryRequestId } from './constants'
-import { LanguageProvider } from './i18n'
 import App from './pages/App'
 import store from './state'
 
@@ -43,17 +42,15 @@ ReactDOM.render(
     <FixedGlobalStyle />
     <Provider store={store}>
       <HashRouter>
-        <LanguageProvider>
-          <Web3ReactProvider getLibrary={getLibrary}>
-            <Web3ProviderNetwork getLibrary={getLibrary}>
-              <Updaters />
-              <ThemeProvider>
-                <ThemedGlobalStyle />
-                <App />
-              </ThemeProvider>
-            </Web3ProviderNetwork>
-          </Web3ReactProvider>
-        </LanguageProvider>
+        <Web3ReactProvider getLibrary={getLibrary}>
+          <Web3ProviderNetwork getLibrary={getLibrary}>
+            <Updaters />
+            <ThemeProvider>
+              <ThemedGlobalStyle />
+              <App />
+            </ThemeProvider>
+          </Web3ProviderNetwork>
+        </Web3ReactProvider>
       </HashRouter>
     </Provider>
   </StrictMode>,

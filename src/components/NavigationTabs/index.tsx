@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { darken } from 'polished'
 import { NavLink, useHistory } from 'react-router-dom'
 import { ArrowLeft } from 'react-feather'
-import { t, Trans } from '@lingui/macro'
+
 import { Flex } from 'rebass'
 import { ButtonEmpty } from 'components/Button'
 import { RowBetween } from '../Row'
@@ -77,10 +77,10 @@ export function SwapPoolTabs({ active }: { active: 'swap' | 'pool' }) {
   return (
     <Tabs style={{ marginBottom: '20px', display: 'none' }}>
       <StyledNavLink id={`swap-nav-link`} to={'/swap'} isActive={() => active === 'swap'}>
-        <Trans>Swap</Trans>
+        Swap
       </StyledNavLink>
       <StyledNavLink id={`pool-nav-link`} to={'/pool'} isActive={() => active === 'pool'}>
-        <Trans>Pool</Trans>
+        Pool
       </StyledNavLink>
     </Tabs>
   )
@@ -100,9 +100,9 @@ export function FindPoolTabs() {
           <StyledArrowLeft />
         </ButtonEmpty>
         <ActiveText>
-          <Trans>Import Pool</Trans>
+          Import Pool
         </ActiveText>
-        <QuestionHelper text={t`Use this tool to find pairs that don't automatically appear in the interface.`} />
+        <QuestionHelper text={`Use this tool to find pairs that don't automatically appear in the interface.`} />
       </RowBetween>
     </Tabs>
   )
@@ -122,12 +122,12 @@ export function AddRemoveTabs({ adding, creating }: { adding: boolean; creating:
           <StyledArrowLeft />
         </ButtonBack>
         <Flex>
-          <ActiveText>{creating ? t`Create a new pool` : adding ? t`Add Liquidity` : t`Remove Liquidity`}</ActiveText>
+          <ActiveText>{creating ? `Create a new pool` : adding ? `Add Liquidity` : `Remove Liquidity`}</ActiveText>
           <QuestionHelper
             text={
               adding
-                ? t`Add liquidity and receive pool tokens representing your pool share. You will earn dynamic fees on trades for this token pair, proportional to your pool share. Fees earned are automatically claimed when you withdraw your liquidity.`
-                : t`Removing pool tokens converts your position back into underlying tokens at the current rate, proportional to your share of the pool. Accrued fees are included in the amounts you receive.`
+                ? `Add liquidity and receive pool tokens representing your pool share. You will earn dynamic fees on trades for this token pair, proportional to your pool share. Fees earned are automatically claimed when you withdraw your liquidity.`
+                : `Removing pool tokens converts your position back into underlying tokens at the current rate, proportional to your share of the pool. Accrued fees are included in the amounts you receive.`
             }
           />
         </Flex>
@@ -155,10 +155,10 @@ export function MigrateTab() {
         </ButtonBack>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <ActiveText>
-            <Trans>Migrate Liquidity</Trans>
+            Migrate Liquidity
           </ActiveText>
           <QuestionHelper
-            text={t`Converts your liquidity position on Sushiswap into underlying tokens at the current rate. Tokens are deposited into the basic AMP=1 pool on the KyberSwap and you will be given DMM-LP tokens representing your new pool share. If rates are different between the two platforms, some tokens may be refunded to your address.`}
+            text={`Converts your liquidity position on Sushiswap into underlying tokens at the current rate. Tokens are deposited into the basic AMP=1 pool on the KyberSwap and you will be given DMM-LP tokens representing your new pool share. If rates are different between the two platforms, some tokens may be refunded to your address.`}
           />
         </div>
         <TransactionSettings />

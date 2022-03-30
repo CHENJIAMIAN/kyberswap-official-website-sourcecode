@@ -3,7 +3,7 @@ import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core'
 import { darken, lighten } from 'polished'
 import React, { useMemo } from 'react'
 import { Activity } from 'react-feather'
-import { t, Trans } from '@lingui/macro'
+
 import styled from 'styled-components'
 import CoinbaseWalletIcon from '../../assets/images/coinbaseWalletIcon.svg'
 import FortmaticIcon from '../../assets/images/fortmaticIcon.png'
@@ -158,7 +158,7 @@ function Web3StatusInner() {
         {hasPendingTransactions ? (
           <RowBetween>
             <Text>
-              <Trans>{pending?.length} Pending</Trans>
+              {pending?.length} Pending
             </Text>{' '}
             <Loader stroke="white" />
           </RowBetween>
@@ -175,13 +175,13 @@ function Web3StatusInner() {
     return (
       <Web3StatusError onClick={toggleWalletModal}>
         <NetworkIcon />
-        <Text>{error instanceof UnsupportedChainIdError ? t`Wrong Network` : t`Error`}</Text>
+        <Text>{error instanceof UnsupportedChainIdError ? `Wrong Network` : `Error`}</Text>
       </Web3StatusError>
     )
   } else {
     return (
       <ButtonLight onClick={toggleWalletModal} padding="12px">
-        <Trans>Connect Wallet</Trans>
+        Connect Wallet
       </ButtonLight>
     )
   }

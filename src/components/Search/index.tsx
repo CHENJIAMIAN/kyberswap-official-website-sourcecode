@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction } from 'react'
 import styled from 'styled-components'
-import { t } from '@lingui/macro'
+
 import SearchIcon from 'components/Icons/Search'
 import useTheme from 'hooks/useTheme'
 import { X } from 'react-feather'
@@ -66,7 +66,7 @@ export const Search = ({ searchValue, setSearchValue, placeholder, minWidth, sty
       <Wrapper minWidth={minWidth}>
         <Input
           type="text"
-          placeholder={placeholder || t`Search by pool address`}
+          placeholder={placeholder || `Search by pool address`}
           value={searchValue}
           onChange={e => {
             setSearchValue(e.target.value)

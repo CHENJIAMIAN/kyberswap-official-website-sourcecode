@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Trans } from '@lingui/macro'
+
 
 import { NETWORK_ICON, NETWORK_LABEL, SUPPORTED_NETWORKS } from '../../constants/networks'
 import { useModalOpen, useNetworkModalToggle } from '../../state/application/hooks'
@@ -87,7 +87,7 @@ export default function NetworkModal(): JSX.Element | null {
       <Wrapper>
         <Flex alignItems="center" justifyContent="space-between">
           <Text fontWeight="500" fontSize={18}>
-            <Trans>Select a Network</Trans>
+            Select a Network
           </Text>
 
           <Flex sx={{ cursor: 'pointer' }} role="button" onClick={toggleNetworkModal}>

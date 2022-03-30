@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react'
-import { Trans } from '@lingui/macro'
+
 import { Token } from '@dynamic-amm/sdk'
 import { AutoRow, RowFixed } from 'components/Row'
 import { AutoColumn } from 'components/Column'
@@ -75,7 +75,7 @@ export default function ImportRow({
         {list && list.logoURI && (
           <RowFixed>
             <TYPE.small mr="4px" color={theme.text3}>
-              <Trans>via {list.name}</Trans>
+              via {list.name}
             </TYPE.small>
             <ListLogo logoURI={list.logoURI} size="12px" />
           </RowFixed>
@@ -92,13 +92,13 @@ export default function ImportRow({
             showImportView()
           }}
         >
-          <Trans>Import</Trans>
+          Import
         </ButtonPrimary>
       ) : (
         <RowFixed style={{ minWidth: 'fit-content' }}>
           <CheckIcon />
           <TYPE.main color={theme.green1}>
-            <Trans>Active</Trans>
+            Active
           </TYPE.main>
         </RowFixed>
       )}

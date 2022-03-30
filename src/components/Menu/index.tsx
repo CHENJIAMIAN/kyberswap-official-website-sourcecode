@@ -15,7 +15,7 @@ import {
 } from 'react-feather'
 import styled, { css } from 'styled-components'
 import { NavLink } from 'react-router-dom'
-import { Trans, t } from '@lingui/macro'
+
 import { Text } from 'rebass'
 import { ChainId } from '@dynamic-amm/sdk'
 import { ApplicationModal } from 'state/application/actions'
@@ -186,7 +186,7 @@ export default function Menu() {
         mobileCustomStyle={MenuFlyoutMobileStyle}
         isOpen={open}
         toggle={toggle}
-        translatedTitle={t`Menu`}
+        translatedTitle={`Menu`}
         hasArrow
       >
         {/* !above768 && (
@@ -203,7 +203,7 @@ export default function Menu() {
           <MenuItem href={bridgeLink}>
             <Share2 size={14} />
             <Text width="max-content">
-              <Trans>Bridge Assets</Trans>
+              Bridge Assets
             </Text>
           </MenuItem>
         )}
@@ -211,56 +211,56 @@ export default function Menu() {
         {!above768 && (
           <NavMenuItem to="/myPools" onClick={toggle}>
             <Monitor size={14} />
-            <Trans>My Pools456</Trans>
+            My Pools456
           </NavMenuItem>
         )}
         {!above1320 && (
           <NavMenuItem to="/about" onClick={toggle}>
             <Info size={14} />
-            <Trans>About</Trans>
+            About
           </NavMenuItem>
         )}
         {chainId && [ChainId.MAINNET, ChainId.ROPSTEN].includes(chainId) && (
           <NavMenuItem to="/migration" onClick={toggle}>
             <Zap size={14} />
-            <Trans>Migrate Liquidity</Trans>
+            Migrate Liquidity
           </NavMenuItem>
         )}
         <NavMenuItem to="/referral" onClick={toggle}>
           <UserPlus size={14} />
-          <Trans>Referral</Trans>
+          Referral
           <NewLabel>
-            <Trans>New</Trans>
+            New
           </NewLabel>
         </NavMenuItem>
         {!above1100 && (
           <MenuItem id="link" href={DMM_ANALYTICS_URL[chainId as ChainId]}>
             <PieChart size={14} />
-            <Trans>Analytics</Trans>
+            Analytics
           </MenuItem>
         )}
         {/* <MenuItem id="link" href="https://docs.kyberswap.com">
           <BookOpen size={14} />
-          <Trans>Docs</Trans>
+          Docs
         </MenuItem>
         <MenuItem id="link" href="https://gov.kyber.org">
           <MessageCircle size={14} />
-          <Trans>Forum</Trans>
+          Forum
         </MenuItem>
 
         <MenuItem id="link" href="/15022022KyberSwapTermsofUse.pdf">
           <FileText size={14} />
-          <Trans>Terms</Trans>
+          Terms
         </MenuItem> */}
         {process.env.REACT_APP_MAINNET_ENV !== 'production' && (
           <NavMenuItem to="/swap-legacy" onClick={toggle}>
             <Triangle size={14} />
-            <Trans>Swap Legacy</Trans>
+            Swap Legacy
           </NavMenuItem>
         )}
         {/* <MenuItem id="link" href="https://forms.gle/gLiNsi7iUzHws2BY8">
           <Edit size={14} />
-          <Trans>Contact Us</Trans>
+          Contact Us
         </MenuItem> */}
         <ClaimRewardButton
           disabled={!account || (!!chainId && ![ChainId.MATIC, ChainId.ROPSTEN].includes(chainId)) || pendingTx}
@@ -268,10 +268,10 @@ export default function Menu() {
         >
           {pendingTx ? (
             <>
-              <Loader style={{ marginRight: '5px' }} stroke={theme.disableText} /> <Trans>Claiming...</Trans>
+              <Loader style={{ marginRight: '5px' }} stroke={theme.disableText} /> Claiming...
             </>
           ) : (
-            <Trans>Claim Rewards</Trans>
+            `Claim Rewards`
           )}
         </ClaimRewardButton>
       </MenuFlyout>

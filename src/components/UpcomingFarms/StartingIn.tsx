@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text } from 'rebass'
-import { Trans } from '@lingui/macro'
+
 
 import useTheme from 'hooks/useTheme'
 import { getFormattedTimeFromSecond } from 'utils/formatTime'
@@ -11,7 +11,7 @@ const StartingIn = ({ startingIn }: { startingIn?: string }) => {
   if (!startingIn) {
     return (
       <Text color={theme.text}>
-        <Trans>Coming soon</Trans>
+        Coming soon
       </Text>
     )
   }

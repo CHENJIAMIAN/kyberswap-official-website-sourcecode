@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Text, Flex } from 'rebass'
 import styled from 'styled-components'
-import { t, Trans } from '@lingui/macro'
+
 
 import { DMM_ANALYTICS_URL, ONE_BIPS } from 'constants/index'
 import { useTotalSupply } from '../../data/TotalSupply'
@@ -157,7 +157,7 @@ export function NarrowPositionCard({ pair, showUnwrapped = false, border }: Posi
           <FixedHeightRow>
             <RowFixed>
               <Text fontWeight={500} fontSize={16}>
-                <Trans>Your position</Trans>
+                Your position
               </Text>
             </RowFixed>
           </FixedHeightRow>
@@ -177,7 +177,7 @@ export function NarrowPositionCard({ pair, showUnwrapped = false, border }: Posi
           <AutoColumn gap="4px">
             <FixedHeightRow>
               <Text fontSize={16} fontWeight={500}>
-                <Trans>Your pool share:</Trans>
+                Your pool share:
               </Text>
               <Text fontSize={16} fontWeight={500}>
                 {poolTokenPercentage ? poolTokenPercentage.toFixed(6) + '%' : '-'}
@@ -255,7 +255,7 @@ export function MinimalPositionCard({ pair, showUnwrapped = false }: PositionCar
       <StyledMinimalPositionCard>
         <MinimalPositionItem style={{ height: '100%', alignItems: 'center', display: 'flex' }}>
           <Text fontWeight={500} fontSize={16}>
-            <Trans>Your Current Position</Trans>
+            Your Current Position
           </Text>
         </MinimalPositionItem>
 
@@ -329,7 +329,7 @@ export function MinimalPositionCard({ pair, showUnwrapped = false }: PositionCar
         <MinimalPositionItem gap="4px" noBorder={true} noPadding={true}>
           <Text fontSize={12} fontWeight={500} color={theme.subText}>
             <UppercaseText>
-              <Trans>Your Share Of Pool</Trans>
+              Your Share Of Pool
             </UppercaseText>
           </Text>
           <Text fontSize={14} fontWeight={400}>
@@ -459,10 +459,10 @@ export default function FullPositionCard({
             <MouseoverTooltip
               text={
                 warningToken ? (
-                  <WarningMessage>{t`Note: ${warningToken} is now <10% of the pool. Pool might become inactive if ${warningToken} reaches 0%`}</WarningMessage>
+                  <WarningMessage>{`Note: ${warningToken} is now <10% of the pool. Pool might become inactive if ${warningToken} reaches 0%`}</WarningMessage>
                 ) : (
                   <WarningMessage>
-                    <Trans>One token is close to 0% in the pool ratio. Pool might go inactive.</Trans>
+                    One token is close to 0% in the pool ratio. Pool might go inactive.
                   </WarningMessage>
                 )
               }
@@ -495,13 +495,13 @@ export default function FullPositionCard({
 
       <Flex alignItems="center" justifyContent="space-between" marginTop="1.25rem">
         <Text fontSize="1rem" fontWeight={500} color={theme.subText}>
-          {tab === 'ALL' ? <Trans>Your Liquidity</Trans> : <Trans>Your Staked</Trans>}
+          {tab === 'ALL' ? `Your Liquidity` : `Your Staked`}
         </Text>
         <Flex fontSize={12} color={theme.subText} marginTop="2px" alignItems="baseline" sx={{ gap: '4px' }}>
           <Flex alignItems="center" flexDirection="row">
             APR{' '}
             {tab === 'STAKED' && (
-              <InfoHelper text={t`${tradingFeeAPR.toFixed(2)}% LP Fee + ${farmAPR.toFixed(2)}% Rewards`} size={14} />
+              <InfoHelper text={`${tradingFeeAPR.toFixed(2)}% LP Fee + ${farmAPR.toFixed(2)}% Rewards`} size={14} />
             )}
           </Flex>
           <Text as="span" color={theme.apr} fontSize="20px" fontWeight={500}>
@@ -516,7 +516,7 @@ export default function FullPositionCard({
           <>
             <Row>
               <Text>
-                <Trans>Your Liquidity Balance</Trans>
+                Your Liquidity Balance
               </Text>
               <Text fontSize={14} color={theme.text}>
                 {totalDeposit}
@@ -524,7 +524,7 @@ export default function FullPositionCard({
             </Row>
             <Row>
               <Text>
-                <Trans>Total LP Tokens</Trans>
+                Total LP Tokens
               </Text>
               <Text color={theme.text} fontSize={14}>
                 {userPoolBalance?.toSignificant(6) ?? '-'}
@@ -533,9 +533,9 @@ export default function FullPositionCard({
             <Row>
               <Flex alignItems="center">
                 <Text>
-                  <Trans>Available LP Tokens</Trans>
+                  Available LP Tokens
                 </Text>
-                <InfoHelper text={t`Your available LP Token balance after staking (if applicable)`} size={14} />
+                <InfoHelper text={`Your available LP Token balance after staking (if applicable)`} size={14} />
               </Flex>
               <Text color={theme.text} fontSize={14}>
                 {userDefaultPoolBalance?.toSignificant(6) ?? '0'}
@@ -544,7 +544,7 @@ export default function FullPositionCard({
 
             <Row>
               <Text>
-                <Trans>Pooled {native0?.symbol}</Trans>
+                Pooled {native0?.symbol}
               </Text>
               {token0Deposited ? (
                 <RowFixed>
@@ -559,7 +559,7 @@ export default function FullPositionCard({
             </Row>
             <Row>
               <Text>
-                <Trans>Pooled {native1?.symbol}</Trans>
+                Pooled {native1?.symbol}
               </Text>
               {token1Deposited ? (
                 <RowFixed>
@@ -575,7 +575,7 @@ export default function FullPositionCard({
 
             <Row>
               <Text>
-                <Trans>Your Share Of Pool</Trans>
+                Your Share Of Pool
               </Text>
               <Text fontSize={14} color={theme.text}>
                 {poolTokenPercentage
@@ -588,7 +588,7 @@ export default function FullPositionCard({
           <>
             <Row>
               <Text>
-                <Trans>Your Staked Balance</Trans>
+                Your Staked Balance
               </Text>
               <Text fontSize={14} color={theme.text}>
                 {formattedNum(stakedUSD.toString(), true)}
@@ -596,7 +596,7 @@ export default function FullPositionCard({
             </Row>
             <Row>
               <Text>
-                <Trans>Staked LP Tokens</Trans>
+                Staked LP Tokens
               </Text>
               <Text color={theme.text} fontSize={14}>
                 {stakedBalance?.toSignificant(6) ?? '-'}
@@ -604,7 +604,7 @@ export default function FullPositionCard({
             </Row>
             <Row>
               <Text>
-                <Trans>Staked {native0?.symbol}</Trans>
+                Staked {native0?.symbol}
               </Text>
               {token0Staked ? (
                 <RowFixed>
@@ -619,7 +619,7 @@ export default function FullPositionCard({
             </Row>
             <Row>
               <Text>
-                <Trans>Staked {native1?.symbol}</Trans>
+                Staked {native1?.symbol}
               </Text>
               {token1Staked ? (
                 <RowFixed>
@@ -645,7 +645,7 @@ export default function FullPositionCard({
             to={`/add/${currencyId(currency0, chainId)}/${currencyId(currency1, chainId)}/${pair.address}`}
           >
             <Text width="max-content">
-              <Trans>Add Liquidity</Trans>
+              Add Liquidity
             </Text>
           </ButtonPrimary>
 
@@ -660,7 +660,7 @@ export default function FullPositionCard({
               to={`/remove/${currencyId(currency0, chainId)}/${currencyId(currency1, chainId)}/${pair.address}`}
             >
               <Text width="max-content">
-                <Trans>Remove Liquidity</Trans>
+                Remove Liquidity
               </Text>
             </ButtonOutlined>
           ) : (
@@ -673,7 +673,7 @@ export default function FullPositionCard({
               }}
             >
               <Text width="max-content">
-                <Trans>Remove Liquidity</Trans>
+                Remove Liquidity
               </Text>
             </ButtonPrimary>
           )}
@@ -686,7 +686,7 @@ export default function FullPositionCard({
           to={`/farms?tab=${farmStatus === 'FARM_ACTIVE' ? 'active' : 'end'}`}
         >
           <Text width="max-content">
-            <Trans>Go to farm</Trans>
+            Go to farm
           </Text>
         </ButtonPrimary>
       )}
@@ -699,17 +699,17 @@ export default function FullPositionCard({
             style={{ width: '100%', textAlign: 'center' }}
             href={`${DMM_ANALYTICS_URL[chainId as ChainId]}/account/${account}`}
           >
-            <Trans>Analytics ↗</Trans>
+            Analytics ↗
           </ExternalLink>
         </ButtonEmpty>
         {tab === 'ALL' && farmStatus === 'FARM_ACTIVE' && (
           <ButtonEmpty width="max-content" style={{ fontSize: '14px' }} padding="0" as={Link} to="/farms?tab=active">
-            <Trans>Go to farm ↗</Trans>
+            Go to farm ↗
           </ButtonEmpty>
         )}
         {tab === 'ALL' && farmStatus === 'FARM_ENDED' && stakedBalance && (
           <ButtonEmpty width="max-content" style={{ fontSize: '14px' }} padding="0" as={Link} to="/farms?tab=ended">
-            <Trans>Go to farm ↗</Trans>
+            Go to farm ↗
           </ButtonEmpty>
         )}
       </Flex>

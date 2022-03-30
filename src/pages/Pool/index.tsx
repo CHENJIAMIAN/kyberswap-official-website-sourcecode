@@ -1,14 +1,13 @@
 import React, { useContext, useMemo, useState } from 'react'
 import styled, { ThemeContext, keyframes } from 'styled-components'
 import { Text, Flex } from 'rebass'
-import { t, Trans } from '@lingui/macro'
+
 
 import { Pair, JSBI, Token, TokenAmount } from '@dynamic-amm/sdk'
 import { SwapPoolTabs } from 'components/NavigationTabs'
 import FullPositionCard from 'components/PositionCard'
 import { DataCard, CardNoise, CardBGImage } from 'components/earn/styled'
 import Card from 'components/Card'
-import { SwitchLocaleLink } from 'components/SwitchLocaleLink'
 import { AutoColumn } from 'components/Column'
 import { AutoRow } from 'components/Row'
 import { StyledInternalLink, TYPE } from '../../theme'
@@ -222,12 +221,12 @@ export default function Pool() {
           <AutoColumn gap="lg" style={{ width: '100%' }}>
             <AutoRow>
               <InstructionText>
-                <Trans>Here you can view all your liquidity and staked balances</Trans>
+                Here you can view all your liquidity and staked balances
               </InstructionText>
             </AutoRow>
 
             <Text fontSize="20px" fontWeight={500}>
-              <Trans>My Pools789</Trans>
+              My Pools789
             </Text>
 
             <TitleRow>
@@ -252,22 +251,22 @@ export default function Pool() {
                     textDecoration: 'none'
                   }}
                 >
-                  <Trans>Import Pool</Trans>
-                  {!isMobile && <InfoHelper text={t`You can manually import your pool`} color={theme.textReverse} />}
+                  Import Pool
+                  {!isMobile && <InfoHelper text={`You can manually import your pool`} color={theme.textReverse} />}
                 </ButtonPrimary>
               </Flex>
               <Search
                 minWidth="254px"
                 searchValue={searchText}
                 setSearchValue={setSearchText}
-                placeholder={t`Search by token name or pool address`}
+                placeholder={`Search by token name or pool address`}
               />
             </TitleRow>
 
             {!account ? (
               <Card padding="40px">
                 <TYPE.body color={theme.text3} textAlign="center">
-                  <Trans>Connect to a wallet to view your liquidity.</Trans>
+                  Connect to a wallet to view your liquidity.
                 </TYPE.body>
               </Card>
             ) : !showStaked ? (
@@ -313,9 +312,9 @@ export default function Pool() {
                       ))}
                   </PositionCardGrid>
                   <Text fontSize={16} color={theme.subText} textAlign="center" marginTop="1rem">
-                    {t`Don't see a pool you joined?`}{' '}
+                    {`Don't see a pool you joined?`}{' '}
                     <StyledInternalLink id="import-pool-link" to={'/find'}>
-                      <Trans>Import it.</Trans>
+                      Import it.
                     </StyledInternalLink>
                   </Text>
                 </>
@@ -323,13 +322,13 @@ export default function Pool() {
                 <Flex flexDirection="column" alignItems="center" marginTop="60px">
                   <Info size={48} color={theme.subText} />
                   <Text fontSize={16} lineHeight={1.5} color={theme.subText} textAlign="center" marginTop="1rem">
-                    <Trans>
+                    
                       No liquidity found. Check out our <StyledInternalLink to="/pools">Pools.</StyledInternalLink>
-                    </Trans>
+                    
                     <br />
-                    {t`Don't see a pool you joined?`}{' '}
+                    {`Don't see a pool you joined?`}{' '}
                     <StyledInternalLink id="import-pool-link" to={'/find'}>
-                      <Trans>Import it.</Trans>
+                      Import it.
                     </StyledInternalLink>
                   </Text>
                 </Flex>
@@ -356,9 +355,9 @@ export default function Pool() {
                     ))}
                 </PositionCardGrid>
                 <Text fontSize={16} color={theme.subText} textAlign="center" marginTop="1rem">
-                  {t`Don't see a pool you joined?`}{' '}
+                  {`Don't see a pool you joined?`}{' '}
                   <StyledInternalLink id="import-pool-link" to={'/find'}>
-                    <Trans>Import it.</Trans>
+                    Import it.
                   </StyledInternalLink>
                 </Text>
               </>
@@ -366,13 +365,13 @@ export default function Pool() {
               <Flex flexDirection="column" alignItems="center" marginTop="60px">
                 <Info size={48} color={theme.subText} />
                 <Text fontSize={16} lineHeight={1.5} color={theme.subText} textAlign="center" marginTop="1rem">
-                  <Trans>
+                  
                     No staked liquidity found. Check out our <StyledInternalLink to="/farms">Farms.</StyledInternalLink>
-                  </Trans>
+                  
                   <br />
-                  {t`Don't see a pool you joined?`}{' '}
+                  {`Don't see a pool you joined?`}{' '}
                   <StyledInternalLink id="import-pool-link" to={'/find'}>
-                    <Trans>Import it.</Trans>
+                    Import it.
                   </StyledInternalLink>
                 </Text>
               </Flex>
@@ -380,7 +379,6 @@ export default function Pool() {
           </AutoColumn>
         </AutoColumn>
       </PageWrapper>
-      <SwitchLocaleLink />
     </>
   )
 }

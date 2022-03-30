@@ -4,7 +4,7 @@ import React, { useContext, useMemo, useState } from 'react'
 import { Repeat } from 'react-feather'
 import { Text } from 'rebass'
 import { ThemeContext } from 'styled-components'
-import { t, Trans } from '@lingui/macro'
+
 import { useCurrencyConvertedToNative } from 'utils/dmm'
 import { Field } from '../../state/swap/actions'
 import { TYPE } from '../../theme'
@@ -49,7 +49,7 @@ export default function SwapModalFooter({
       <AutoColumn gap="0.5rem" style={{ padding: '1rem', border: `1px solid ${theme.border}`, borderRadius: '8px' }}>
         <RowBetween align="center">
           <Text fontWeight={400} fontSize={14} color={theme.subText}>
-            <Trans>Current Price</Trans>
+            Current Price
           </Text>
           <Text
             fontWeight={500}
@@ -73,9 +73,9 @@ export default function SwapModalFooter({
         <RowBetween>
           <RowFixed>
             <TYPE.black fontSize={14} fontWeight={400} color={theme.subText}>
-              {trade.tradeType === TradeType.EXACT_INPUT ? t`Minimum received` : t`Maximum sold`}
+              {trade.tradeType === TradeType.EXACT_INPUT ? `Minimum received` : `Maximum sold`}
             </TYPE.black>
-            <InfoHelper size={14} text={t`Minimum amount you will receive or your transaction will revert`} />
+            <InfoHelper size={14} text={`Minimum amount you will receive or your transaction will revert`} />
           </RowFixed>
           <RowFixed>
             <TYPE.black fontSize={14}>
@@ -91,9 +91,9 @@ export default function SwapModalFooter({
         <RowBetween>
           <RowFixed>
             <TYPE.black fontSize={14} fontWeight={400} color={theme.subText}>
-              <Trans>Gas Fee</Trans>
+              Gas Fee
             </TYPE.black>
-            <InfoHelper size={14} text={t`Estimated network fee for your transaction`} />
+            <InfoHelper size={14} text={`Estimated network fee for your transaction`} />
           </RowFixed>
 
           <TYPE.black color={theme.text} fontSize={14}>
@@ -104,9 +104,9 @@ export default function SwapModalFooter({
         <RowBetween>
           <RowFixed>
             <TYPE.black fontSize={14} fontWeight={400} color={theme.subText}>
-              <Trans>Price Impact</Trans>
+              Price Impact
             </TYPE.black>
-            <InfoHelper size={14} text={t`Estimated change in price due to the size of your transaction`} />
+            <InfoHelper size={14} text={`Estimated change in price due to the size of your transaction`} />
           </RowFixed>
           <TYPE.black fontSize={14} color={trade.priceImpact > 5 ? theme.red : theme.text}>
             {trade.priceImpact > 0.01 ? trade.priceImpact.toFixed(3) : '< 0.01'}%
@@ -116,9 +116,9 @@ export default function SwapModalFooter({
           <RowBetween>
             <RowFixed>
               <TYPE.black fontSize={14} fontWeight={400} color={theme.subText}>
-                <Trans>Referral Fee</Trans>
+                Referral Fee
               </TYPE.black>
-              <InfoHelper size={14} text={t`Commission fee to be paid directly to your referrer`} />
+              <InfoHelper size={14} text={`Commission fee to be paid directly to your referrer`} />
             </RowFixed>
             <TYPE.black color={theme.text} fontSize={14}>
               {formattedNum(
@@ -145,7 +145,7 @@ export default function SwapModalFooter({
           id="confirm-swap-or-send"
         >
           <Text fontSize={20} fontWeight={500}>
-            {t`Confirm Swap`}
+            {`Confirm Swap`}
           </Text>
         </ButtonError>
 

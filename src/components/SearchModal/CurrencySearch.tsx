@@ -4,7 +4,7 @@ import { Edit } from 'react-feather'
 import { FixedSizeList } from 'react-window'
 import { Text } from 'rebass'
 import AutoSizer from 'react-virtualized-auto-sizer'
-import { t, Trans } from '@lingui/macro'
+
 
 import { ChainId, Currency, ETHER, Token } from '@dynamic-amm/sdk'
 import ImportRow from './ImportRow'
@@ -177,9 +177,9 @@ export function CurrencySearch({
       <PaddedColumn gap="14px">
         <RowBetween>
           <Text fontWeight={500} fontSize={16} display="flex">
-            <Trans>Select a token</Trans>
+            Select a token
             <QuestionHelper
-              text={t`Find a token by searching for its name or symbol or by pasting its address below.`}
+              text={`Find a token by searching for its name or symbol or by pasting its address below.`}
             />
           </Text>
           <CloseIcon onClick={onDismiss} />
@@ -187,7 +187,7 @@ export function CurrencySearch({
         <SearchInput
           type="text"
           id="token-search-input"
-          placeholder={t`Search name or paste address`}
+          placeholder={`Search name or paste address`}
           value={searchQuery}
           ref={inputRef as RefObject<HTMLInputElement>}
           onChange={handleInput}
@@ -199,7 +199,7 @@ export function CurrencySearch({
         )}
         <RowBetween>
           <Text fontSize={14} fontWeight={500}>
-            <Trans>Token Name</Trans>
+            Token Name
           </Text>
           <SortButton ascending={invertSearchOrder} toggleSortOrder={() => setInvertSearchOrder(iso => !iso)} />
         </RowBetween>
@@ -240,7 +240,7 @@ export function CurrencySearch({
       ) : (
         <Column style={{ padding: '20px', height: '100%' }}>
           <TYPE.main color={theme.text3} textAlign="center" mb="20px">
-            <Trans>No results found.</Trans>
+            No results found.
           </TYPE.main>
         </Column>
       )}
@@ -253,7 +253,7 @@ export function CurrencySearch({
                 <Edit />
               </IconWrapper>
               <TYPE.main color={theme.blue1}>
-                <Trans>Manage Token Lists</Trans>
+                Manage Token Lists
               </TYPE.main>
             </RowFixed>
           </ButtonText>

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useContext, useCallback } from 'react'
 import styled, { css, ThemeContext } from 'styled-components'
-import { t, Trans } from '@lingui/macro'
+
 import { Text, Flex } from 'rebass'
 import { X } from 'react-feather'
 import QuestionHelper from '../QuestionHelper'
@@ -273,10 +273,10 @@ export function SlippageTabs({ rawSlippage, setRawSlippage, deadline, setDeadlin
       <AutoColumn gap="md" style={{ padding: '6px 0' }}>
         <RowFixed>
           <StyledLabel>
-            <Trans>Max Slippage</Trans>
+            Max Slippage
           </StyledLabel>
           <QuestionHelper
-            text={t`Transaction will revert if there is an adverse rate change that is higher than this %`}
+            text={`Transaction will revert if there is an adverse rate change that is higher than this %`}
           />
         </RowFixed>
         <RowBetween>
@@ -341,10 +341,10 @@ export function SlippageTabs({ rawSlippage, setRawSlippage, deadline, setDeadlin
             }}
           >
             {slippageError === SlippageError.InvalidInput
-              ? t`Enter a valid slippage percentage`
+              ? `Enter a valid slippage percentage`
               : slippageError === SlippageError.RiskyLow
-              ? t`Your transaction may fail`
-              : t`Your transaction may be frontrun`}
+              ? `Your transaction may fail`
+              : `Your transaction may be frontrun`}
           </RowBetween>
         )}
       </AutoColumn>
@@ -352,9 +352,9 @@ export function SlippageTabs({ rawSlippage, setRawSlippage, deadline, setDeadlin
       <AutoColumn gap="sm">
         <RowFixed>
           <StyledLabel>
-            <Trans>Transaction time limit</Trans>
+            Transaction time limit
           </StyledLabel>
-          <QuestionHelper text={t`Transaction will revert if it is pending for longer than the indicated time`} />
+          <QuestionHelper text={`Transaction will revert if it is pending for longer than the indicated time`} />
         </RowFixed>
         <RowFixed>
           <OptionCustom style={{ width: '100px' }} tabIndex={-1}>
@@ -369,7 +369,7 @@ export function SlippageTabs({ rawSlippage, setRawSlippage, deadline, setDeadlin
             />
           </OptionCustom>
           <TYPE.body style={{ paddingLeft: '8px' }} fontSize={12} color={theme.text11}>
-            <Trans>minutes</Trans>
+            minutes
           </TYPE.body>
         </RowFixed>
       </AutoColumn>
@@ -421,30 +421,30 @@ export default function TransactionSettings({
         <ModalContentWrapper>
           <Flex alignItems="center" justifyContent="space-between">
             <Text fontSize="20px" fontWeight={500}>
-              <Trans>Are you sure?</Trans>
+              Are you sure?
             </Text>
 
             <StyledCloseIcon onClick={() => setShowConfirmation(false)} />
           </Flex>
 
           <Text marginTop="28px">
-            <Trans>
+            
               <Text color={theme.warning} as="span" fontWeight="500">
                 Advanced Mode
               </Text>{' '}
               turns off the 'Confirm' transaction prompt and allows high slippage trades that can result in bad rates
               and lost funds.
-            </Trans>
+            
           </Text>
 
           <Text marginTop="24px">
-            <Trans>Please type the word 'confirm' below to enable Advanced Mode</Trans>
+            Please type the word 'confirm' below to enable Advanced Mode
           </Text>
 
           <StyledInput placeholder="Confirm" value={confirmText} onChange={e => setConfirmText(e.target.value)} />
 
           <Text color={theme.disableText} marginTop="8px" fontSize="10px">
-            <Trans>Use this mode if you are aware of the risks</Trans>
+            Use this mode if you are aware of the risks
           </Text>
 
           <Flex sx={{ gap: '12px' }} marginTop="28px">
@@ -462,7 +462,7 @@ export default function TransactionSettings({
                 }
               }}
             >
-              <Trans>Confirm</Trans>
+              Confirm
             </ButtonPrimary>
             <ButtonOutlined
               onClick={() => {
@@ -471,7 +471,7 @@ export default function TransactionSettings({
               }}
               style={{ fontSize: '18px' }}
             >
-              <Trans>Cancel</Trans>
+              Cancel
             </ButtonOutlined>
           </Flex>
         </ModalContentWrapper>
@@ -479,7 +479,7 @@ export default function TransactionSettings({
 
       {/* https://github.com/DefinitelyTyped/DefinitelyTyped/issues/30451 */}
       <StyledMenu ref={node as any}>
-        <Tooltip text={t`Advanced mode is on!`} show={expertMode && isShowTooltip}>
+        <Tooltip text={`Advanced mode is on!`} show={expertMode && isShowTooltip}>
           <div onMouseEnter={showTooltip} onMouseLeave={hideTooltip}>
             <StyledMenuButton
               active={open}
@@ -497,7 +497,7 @@ export default function TransactionSettings({
           browserCustomStyle={MenuFlyoutBrowserStyle}
           isOpen={open}
           toggle={toggle}
-          translatedTitle={t`Advanced Settings`}
+          translatedTitle={`Advanced Settings`}
           mobileCustomStyle={{ paddingBottom: '40px' }}
           hasArrow
         >
@@ -512,9 +512,9 @@ export default function TransactionSettings({
             <RowBetween margin="14px 0">
               <RowFixed>
                 <StyledLabel>
-                  <Trans>Advanced Mode</Trans>
+                  Advanced Mode
                 </StyledLabel>
-                <QuestionHelper text={t`Enables high slippage trades. Use at your own risk.`} />
+                <QuestionHelper text={`Enables high slippage trades. Use at your own risk.`} />
               </RowFixed>
               <Toggle
                 id="toggle-expert-mode-button"
@@ -536,13 +536,13 @@ export default function TransactionSettings({
             {isShowDisplaySettings && (
               <>
                 <StyledTitle style={{ borderTop: '1px solid ' + theme.border, padding: '16px 0' }}>
-                  <Trans>Display Settings</Trans>
+                  Display Settings
                 </StyledTitle>
                 <AutoColumn gap="md">
                   <RowBetween>
                     <RowFixed>
                       <StyledLabel>Live Chart</StyledLabel>
-                      <QuestionHelper text={t`Turn on to display live chart.`} />
+                      <QuestionHelper text={`Turn on to display live chart.`} />
                     </RowFixed>
                     <Toggle
                       isActive={isMobile ? isShowMobileLiveChart : isShowLiveChart}
@@ -559,9 +559,9 @@ export default function TransactionSettings({
                   <RowBetween>
                     <RowFixed>
                       <StyledLabel>
-                        <Trans>Trade Route</Trans>
+                        Trade Route
                       </StyledLabel>
-                      <QuestionHelper text={t`Turn on to display trade route.`} />
+                      <QuestionHelper text={`Turn on to display trade route.`} />
                     </RowFixed>
                     <Toggle
                       isActive={isMobile ? isShowMobileTradeRoutes : isShowTradeRoutes}

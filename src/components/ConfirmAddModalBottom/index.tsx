@@ -1,5 +1,5 @@
 import React from 'react'
-import { Trans } from '@lingui/macro'
+
 import styled from 'styled-components'
 import { Text, Flex } from 'rebass'
 
@@ -73,7 +73,7 @@ export function ConfirmAddModalBottom({
       <Section style={{ gap: '8px' }}>
         <RowBetween>
           <TYPE.subHeader fontSize={14} fontWeight={400} color={theme.subText}>
-            <Trans>Pooled {tokenA?.symbol}</Trans>
+            Pooled {tokenA?.symbol}
           </TYPE.subHeader>
           <RowFixed>
             <CurrencyLogo currency={currencies[Field.CURRENCY_A]} style={{ marginRight: '8px' }} />
@@ -92,7 +92,7 @@ export function ConfirmAddModalBottom({
 
         <RowBetween>
           <TYPE.subHeader fontSize={14} fontWeight={400} color={theme.subText}>
-            <Trans>Pooled {tokenB?.symbol}</Trans>
+            Pooled {tokenB?.symbol}
           </TYPE.subHeader>
           <RowFixed>
             <CurrencyLogo currency={currencies[Field.CURRENCY_B]} style={{ marginRight: '8px' }} />
@@ -112,7 +112,7 @@ export function ConfirmAddModalBottom({
 
         <CurrentPriceWrapper>
           <TYPE.subHeader fontSize={14} fontWeight={400} color={theme.subText}>
-            <Trans>Current Price</Trans>
+            Current Price
           </TYPE.subHeader>
           <TYPE.black fontWeight={400} fontSize={14}>
             <CurrentPrice price={price} />
@@ -121,7 +121,7 @@ export function ConfirmAddModalBottom({
 
         <RowBetween>
           <TYPE.subHeader fontSize={14} fontWeight={400} color={theme.subText}>
-            <Trans>Your Share of Pool</Trans>
+            Your Share of Pool
           </TYPE.subHeader>
           <TYPE.black fontSize={14} fontWeight={400}>
             {noLiquidity && price
@@ -138,7 +138,7 @@ export function ConfirmAddModalBottom({
         {priceImpact && (
           <RowBetween>
             <TYPE.subHeader fontSize={14} fontWeight={400} color={theme.subText}>
-              <Trans>Price Impact</Trans>
+              Price Impact
             </TYPE.subHeader>
             <TYPE.black fontSize={14} fontWeight={400}>
               <FormattedPriceImpact priceImpact={priceImpact} />

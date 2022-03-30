@@ -35,7 +35,7 @@ import { formatTokenBalance, getFullDisplayBalance } from 'utils/formatBalance'
 import { getTradingFeeAPR, useFarmApr, useFarmRewards, useFarmRewardsUSD } from 'utils/dmm'
 import { ExternalLink } from 'theme'
 import { currencyIdFromAddress } from 'utils/currencyId'
-import { t, Trans } from '@lingui/macro'
+
 import InfoHelper from 'components/InfoHelper'
 import {
   APY,
@@ -288,7 +288,7 @@ const ListItem = ({ farm }: ListItemProps) => {
             <InfoHelper
               text={
                 tradingFeeAPR < MAX_ALLOW_APY
-                  ? t`${tradingFeeAPR.toFixed(2)}% LP Fee + ${farmAPR.toFixed(2)}% Rewards`
+                  ? `${tradingFeeAPR.toFixed(2)}% LP Fee + ${farmAPR.toFixed(2)}% Rewards`
                   : `${farmAPR.toFixed(2)}% Rewards`
               }
             />
@@ -326,7 +326,7 @@ const ListItem = ({ farm }: ListItemProps) => {
                 <div grid-area="stake">
                   <BalanceInfo>
                     <Text fontSize={12} fontWeight={500}>
-                      <Trans>AVAILABLE BALANCE: </Trans>
+                      AVAILABLE BALANCE: 
                     </Text>
                     <GreyText>{formattedNum(userLPBalanceUSD.toString(), true)}</GreyText>
                   </BalanceInfo>
@@ -338,7 +338,7 @@ const ListItem = ({ farm }: ListItemProps) => {
                 <div grid-area="unstake">
                   <BalanceInfo>
                     <Text fontSize={12} fontWeight={500}>
-                      <Trans>STAKED BALANCE: </Trans>
+                      STAKED BALANCE: 
                     </Text>
                     <GreyText>{formattedNum(userStakedBalanceUSD.toString(), true)}</GreyText>
                   </BalanceInfo>
@@ -349,7 +349,7 @@ const ListItem = ({ farm }: ListItemProps) => {
                 </div>
                 <BalanceInfo grid-area="harvest">
                   <Text fontSize={12} fontWeight={500}>
-                    <Trans>REWARD:</Trans>
+                    REWARD:
                   </Text>
                   <GreyText>{rewardUSD ? formattedNum(rewardUSD.toString(), true) : '$0'}</GreyText>
                 </BalanceInfo>
@@ -367,10 +367,10 @@ const ListItem = ({ farm }: ListItemProps) => {
                   >
                     {approvalState === ApprovalState.PENDING ? (
                       <Dots>
-                        <Trans>Approving </Trans>
+                        Approving 
                       </Dots>
                     ) : (
-                      <Trans>Approve</Trans>
+                      `Approve`
                     )}
                   </ButtonPrimary>
                 )}
@@ -466,7 +466,7 @@ const ListItem = ({ farm }: ListItemProps) => {
                           style={{ flex: 1 }}
                           onClick={() => handleHarvest(farm.pid)}
                         >
-                          <Trans>Harvest</Trans>
+                          Harvest
                         </ButtonPrimary>
                         {!!FARMING_POOLS_CHAIN_STAKING_LINK[farm.id.toLowerCase()] && (
                           <ButtonOutlined
@@ -476,7 +476,7 @@ const ListItem = ({ farm }: ListItemProps) => {
                             href={`${FARMING_POOLS_CHAIN_STAKING_LINK[farm.id.toLowerCase()]}`}
                           >
                             <GetLP style={{ display: '-webkit-inline-box' }}>
-                              <Trans>Earn More!</Trans> ↗
+                              Earn More! ↗
                             </GetLP>
                           </ButtonOutlined>
                         )}
@@ -494,16 +494,16 @@ const ListItem = ({ farm }: ListItemProps) => {
                   }
                 >
                   <GetLP>
-                    <Trans>Get pool {outsideFarm ? `(${outsideFarm.name})` : ''} info</Trans> ↗
+                    Get pool {outsideFarm ? `(${outsideFarm.name})` : ''} info ↗
                   </GetLP>
                 </ExternalLink>
                 {outsideFarm ? (
                   <ExternalLink href={outsideFarm.getLPTokenLink}>
                     <GetLP>
-                      <Trans>
+                      
                         Get {farm.token0?.symbol}-{farm.token1?.symbol} {outsideFarm ? `(${outsideFarm.name})` : ''} LP
                         ↗
-                      </Trans>
+                      
                     </GetLP>
                   </ExternalLink>
                 ) : (
@@ -515,9 +515,9 @@ const ListItem = ({ farm }: ListItemProps) => {
                     style={{ textDecoration: 'none' }}
                   >
                     <GetLP>
-                      <Trans>
+                      
                         Get {farm.token0?.symbol}-{farm.token1?.symbol} LP ↗
-                      </Trans>
+                      
                     </GetLP>
                   </Link>
                 )}
@@ -560,7 +560,7 @@ const ListItem = ({ farm }: ListItemProps) => {
         <GridItem>
           <DataTitle>
             <span>
-              <Trans>Staked TVL</Trans>
+              Staked TVL
             </span>
           </DataTitle>
           <DataText grid-area="liq">
@@ -570,7 +570,7 @@ const ListItem = ({ farm }: ListItemProps) => {
         <GridItem>
           <DataTitle>
             <span>
-              <Trans>APR</Trans>
+              APR
             </span>
             <InfoHelper
               text={'Once a farm has ended, you will continue to receive returns through LP Fees'}
@@ -579,13 +579,13 @@ const ListItem = ({ farm }: ListItemProps) => {
           </DataTitle>
           <DataText grid-area="apy">
             <APY grid-area="apy">{apr.toFixed(2)}%</APY>
-            {apr !== 0 && <InfoHelper text={t`${tradingFeeAPR.toFixed(2)}% LP Fee + ${farmAPR.toFixed(2)}% Rewards`} />}
+            {apr !== 0 && <InfoHelper text={`${tradingFeeAPR.toFixed(2)}% LP Fee + ${farmAPR.toFixed(2)}% Rewards`} />}
           </DataText>
         </GridItem>
 
         <GridItem>
           <DataTitle>
-            <Trans>My Rewards</Trans>
+            My Rewards
           </DataTitle>
           <DataText style={{ display: 'flex', flexDirection: 'column' }}>
             {farmRewards.map(reward => {
@@ -605,7 +605,7 @@ const ListItem = ({ farm }: ListItemProps) => {
 
         <GridItem>
           <DataTitle>
-            <Trans>My Deposit</Trans>
+            My Deposit
           </DataTitle>
           <DataText>{formattedNum(userStakedBalanceUSD.toString(), true)}</DataText>
         </GridItem>
@@ -613,7 +613,7 @@ const ListItem = ({ farm }: ListItemProps) => {
         <GridItem noBorder>
           <DataTitle>
             <span>
-              <Trans>Ending In</Trans>
+              Ending In
             </span>
           </DataTitle>
         </GridItem>
@@ -632,10 +632,10 @@ const ListItem = ({ farm }: ListItemProps) => {
                 <ButtonPrimary color="blue" disabled={approvalState === ApprovalState.PENDING} onClick={approve}>
                   {approvalState === ApprovalState.PENDING ? (
                     <Dots>
-                      <Trans>Approving </Trans>
+                      Approving 
                     </Dots>
                   ) : (
-                    <Trans>Approve</Trans>
+                    `Approve`
                   )}
                 </ButtonPrimary>
               </div>
@@ -645,7 +645,7 @@ const ListItem = ({ farm }: ListItemProps) => {
                 <div grid-area="stake">
                   <BalanceInfo>
                     <Text fontSize={12} fontWeight={500}>
-                      <Trans>AVAILABLE BALANCE:</Trans>
+                      AVAILABLE BALANCE:
                     </Text>
                     <GreyText>{formattedNum(userLPBalanceUSD.toString(), true)}</GreyText>
                   </BalanceInfo>
@@ -696,7 +696,7 @@ const ListItem = ({ farm }: ListItemProps) => {
                 <div grid-area="unstake">
                   <BalanceInfo>
                     <Text fontSize={12} fontWeight="500">
-                      <Trans>STAKED BALANCE: </Trans>
+                      STAKED BALANCE: 
                     </Text>
                     <GreyText>{formattedNum(userStakedBalanceUSD.toString(), true)}</GreyText>
                   </BalanceInfo>
@@ -749,7 +749,7 @@ const ListItem = ({ farm }: ListItemProps) => {
                 <Seperator />
                 <BalanceInfo grid-area="harvest">
                   <Text fontSize={12} fontWeight={500}>
-                    <Trans>REWARD:</Trans>
+                    REWARD:
                   </Text>
                   <GreyText>{rewardUSD ? formattedNum(rewardUSD.toString(), true) : '$0'}</GreyText>
                 </BalanceInfo>
@@ -776,7 +776,7 @@ const ListItem = ({ farm }: ListItemProps) => {
                       style={{ flex: 1 }}
                       onClick={() => handleHarvest(farm.pid)}
                     >
-                      <Trans>Harvest</Trans>
+                      Harvest
                     </ButtonPrimary>
                     {!!FARMING_POOLS_CHAIN_STAKING_LINK[farm.id.toLowerCase()] && (
                       <ButtonOutlined
@@ -786,7 +786,7 @@ const ListItem = ({ farm }: ListItemProps) => {
                         href={`${FARMING_POOLS_CHAIN_STAKING_LINK[farm.id.toLowerCase()]}`}
                       >
                         <GetLP style={{ display: '-webkit-inline-box' }}>
-                          <Trans>Earn More!</Trans> ↗
+                          Earn More! ↗
                         </GetLP>
                       </ButtonOutlined>
                     )}
@@ -804,16 +804,16 @@ const ListItem = ({ farm }: ListItemProps) => {
                   }
                 >
                   <GetLP>
-                    <Trans>Get pool {outsideFarm ? `(${outsideFarm.name})` : ''} info</Trans> ↗
+                    Get pool {outsideFarm ? `(${outsideFarm.name})` : ''} info ↗
                   </GetLP>
                 </ExternalLink>
                 {outsideFarm ? (
                   <ExternalLink href={outsideFarm.getLPTokenLink}>
                     <GetLP>
-                      <Trans>
+                      
                         Get {farm.token0?.symbol}-{farm.token1?.symbol} {outsideFarm ? `(${outsideFarm.name})` : ''} LP
                         ↗
-                      </Trans>
+                      
                     </GetLP>
                   </ExternalLink>
                 ) : (
@@ -825,9 +825,9 @@ const ListItem = ({ farm }: ListItemProps) => {
                     style={{ textDecoration: 'none' }}
                   >
                     <GetLP>
-                      <Trans>
+                      
                         Get {farm.token0?.symbol}-{farm.token1?.symbol} LP ↗
-                      </Trans>
+                      
                     </GetLP>
                   </Link>
                 )}

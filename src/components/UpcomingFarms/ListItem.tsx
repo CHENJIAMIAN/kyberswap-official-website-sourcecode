@@ -1,6 +1,6 @@
 import React from 'react'
 import { useMedia } from 'react-use'
-import { Trans } from '@lingui/macro'
+
 import { Flex } from 'rebass'
 
 import { NETWORK_ICON, NETWORK_LABEL } from 'constants/networks'
@@ -34,7 +34,7 @@ const ListItem = ({ pool, isLastItem }: { pool: UpcomingPool; isLastItem: boolea
         </Flex>
         <Flex grid-area="information" alignItems="center" justifyContent="flex-end">
           <ExternalLink href={pool.information}>
-            <Trans>Learn more</Trans> ↗
+            Learn more ↗
           </ExternalLink>
         </Flex>
       </TableRow>
@@ -46,7 +46,7 @@ const ListItem = ({ pool, isLastItem }: { pool: UpcomingPool; isLastItem: boolea
       <GridItem>
         <DataTitle>
           <span>
-            <Trans>Pools</Trans>
+            Pools
           </span>
         </DataTitle>
         <DataText>
@@ -59,7 +59,7 @@ const ListItem = ({ pool, isLastItem }: { pool: UpcomingPool; isLastItem: boolea
       <GridItem>
         <DataTitle>
           <span>
-            <Trans>Network</Trans>
+            Network
           </span>
         </DataTitle>
         <DataText>
@@ -73,7 +73,7 @@ const ListItem = ({ pool, isLastItem }: { pool: UpcomingPool; isLastItem: boolea
       <GridItem>
         <DataTitle>
           <span>
-            <Trans>Rewards</Trans>
+            Rewards
           </span>
         </DataTitle>
         <DataText>
@@ -86,7 +86,7 @@ const ListItem = ({ pool, isLastItem }: { pool: UpcomingPool; isLastItem: boolea
       <GridItem>
         <DataTitle>
           <span>
-            <Trans>Starting In</Trans>
+            Starting In
           </span>
         </DataTitle>
         <DataText>
@@ -97,7 +97,7 @@ const ListItem = ({ pool, isLastItem }: { pool: UpcomingPool; isLastItem: boolea
       <GridItem noBorder>
         <DataTitle style={{ marginBottom: 0, display: 'flex', alignItems: 'center' }}>
           <span>
-            <Trans>Information</Trans>
+            Information
           </span>
         </DataTitle>
       </GridItem>
@@ -106,7 +106,7 @@ const ListItem = ({ pool, isLastItem }: { pool: UpcomingPool; isLastItem: boolea
         <DataText>
           <ExternalLink href={pool.information}>
             <span style={{ fontWeight: 600 }}>
-              <Trans>Learn more</Trans> ↗
+              Learn more ↗
             </span>
           </ExternalLink>
         </DataText>

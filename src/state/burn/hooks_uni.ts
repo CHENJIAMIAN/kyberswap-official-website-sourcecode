@@ -3,7 +3,7 @@ import { Currency, TokenAmount as TokenAmountDMM } from '@dynamic-amm/sdk'
 import { useUnAmplifiedPair } from 'data/Reserves'
 import { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { t } from '@lingui/macro'
+
 import { usePair } from '../../data/ReservesUNI'
 import { useTotalSupply } from '../../data/TotalSupply'
 
@@ -134,11 +134,11 @@ export function useDerivedBurnInfo(
 
   let error: string | undefined
   if (!account) {
-    error = t`Connect wallet`
+    error = `Connect wallet`
   }
 
   if (!parsedAmounts[Field.LIQUIDITY] || !parsedAmounts[Field.CURRENCY_A] || !parsedAmounts[Field.CURRENCY_B]) {
-    error = error ?? t`Enter an amount`
+    error = error ?? `Enter an amount`
   }
 
   const unAmplifiedPairAddress = useUnAmplifiedPair(tokenA, tokenB)

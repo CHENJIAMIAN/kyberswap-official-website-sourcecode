@@ -1,7 +1,7 @@
 import React from 'react'
 import { useMedia } from 'react-use'
 import { Flex } from 'rebass'
-import { Trans } from '@lingui/macro'
+
 
 import RainMakerBannel from 'assets/images/rain-maker.png'
 import RainMakerMobileBanner from 'assets/images/rain-maker-mobile.png'
@@ -23,31 +23,31 @@ const UpcomingFarms = () => {
       <TableHeader>
         <Flex grid-area="pools" alignItems="center" justifyContent="flex-start">
           <ClickableText>
-            <Trans>Pools</Trans>
+            Pools
           </ClickableText>
         </Flex>
 
         <Flex grid-area="startingIn" alignItems="center" justifyContent="flex-start">
           <ClickableText>
-            <Trans>Starting In</Trans>
+            Starting In
           </ClickableText>
         </Flex>
 
         <Flex grid-area="network" alignItems="center" justifyContent="flex-start">
           <ClickableText>
-            <Trans>Network</Trans>
+            Network
           </ClickableText>
         </Flex>
 
         <Flex grid-area="rewards" alignItems="right" justifyContent="flex-end">
           <ClickableText>
-            <Trans>Rewards</Trans>
+            Rewards
           </ClickableText>
         </Flex>
 
         <Flex grid-area="information" alignItems="center" justifyContent="flex-end">
           <ClickableText>
-            <Trans>Information</Trans>
+            Information
           </ClickableText>
         </Flex>
       </TableHeader>
@@ -58,7 +58,7 @@ const UpcomingFarms = () => {
     <>
       <AdContainer>
         <LearnMoreBtn href="https://docs.kyberswap.com/guides/yield-farming" target="_blank" rel="noopener noreferrer">
-          <Trans>Learn more</Trans> -&gt;
+          Learn more -&gt;
         </LearnMoreBtn>
 
         <img src={lgBreakpoint ? RainMakerBannel : RainMakerMobileBanner} alt="RainMaker" width="100%" />
